@@ -1,0 +1,43 @@
+低空自主避障演示
+
+一、推荐的一键启动方式
+在宿主机执行：
+  bash tools/运行低空自主避障演示.sh
+
+脚本会重启容器、加载 Gazebo、启动部署模型，等待仿真里程计后在后台发布完整六障碍航线。
+客户演示时只需打开 Gazebo 窗口并开始录屏，不要再手动启动第二个 Gazebo。
+
+手动方式仍可按下面步骤执行。
+
+二、先把 Gazebo 回到出生点
+在宿主机执行：
+  docker restart navrl_gazebo_avoid_1787925921
+
+等待 Gazebo 窗口出现后，不要再次执行 uav_simulator/start.launch。
+容器入口已经启动了 Gazebo；再次启动会出现重复 Gazebo 或窗口不显示的问题。
+
+三、启动部署模型
+另开终端执行：
+  docker exec -it navrl_gazebo_avoid_1787925921 bash
+  source /opt/ros/noetic/setup.bash
+  source /workspace/catkin_ws/devel/setup.bash
+  roslaunch navigation_runner low_altitude_obstacle_demo.launch rviz:=true
+
+四、发布完整六障碍航线
+再开一个终端执行：
+  docker exec -it navrl_gazebo_avoid_1787925921 bash
+  source /opt/ros/noetic/setup.bash
+  source /workspace/catkin_ws/devel/setup.bash
+  rosrun navigation_runner publish_full_obstacle_route.py
+
+这个脚本只按顺序发布 /move_base_simple/goal，不发送速度指令；每个目标只发布一次，进入 0.30 m 误差范围后才切换下一点。PPO、LiDAR 绕障适配和安全盾在导航节点中闭环运行。
+
+五、坐标与障碍物
+出生点是 map 坐标 (0, 0, 0.1)。演示目标是 (3.5, 0.855335, 1.0)。
+第一个障碍物 small_box 的水平范围是 x=1.56144..2.16144、y=0.555335..1.155335，高度 1.15 m。
+演示保持约 0.93 m 高度，因此不能从顶部通过，必须在 x=1.2..2.5 m 范围内从南侧绕行。
+
+六、完整航线验收记录
+成功条件：10 个目标段全部 success，逐点误差不超过 0.30 m，LiDAR 最近距离保持为正，且最终回到出生点。
+本次记录：10/10 段成功，总路径 42.949 m，段内完成时间合计 99.233 s，逐段观测速度均值 0.399 m/s，最大逐点误差 0.298 m，最小 LiDAR 距离 0.391 m。
+原始数据见“六障碍物完整自主避障_视频同步原始记录.jsonl”，路线见“低空自主避障六航点路线.json”，图见“低空自主避障六航点最终轨迹验收图.png”。

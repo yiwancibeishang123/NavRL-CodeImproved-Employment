@@ -1,0 +1,11 @@
+# Copy to the robot workspace and edit the topic names/calibration values.
+defaults:
+  - train
+
+device: cpu
+
+sensor:
+  lidar_range: 4.0
+  lidar_vfov: [-10.0, 20.0]
+  lidar_vbeams: 4
+  lidar_hres: 10.0

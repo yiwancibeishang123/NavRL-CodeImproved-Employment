@@ -1,0 +1,1359 @@
+<sdf version='1.7'>
+  <world name='default'>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><plane><normal>0 0 1</normal><size>120.0 60.0</size></plane></geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>65535</collide_bitmask>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry><plane><normal>0 0 1</normal><size>120.0 60.0</size></plane></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_outer_wall_top'>
+      <static>true</static>
+      <pose>0.000 21.700 1.250 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>36.740 0.150 2.500</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>36.740 0.150 2.500</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_outer_wall_bottom'>
+      <static>true</static>
+      <pose>0.000 -21.700 1.250 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>36.740 0.150 2.500</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>36.740 0.150 2.500</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_outer_wall_left'>
+      <static>true</static>
+      <pose>-18.370 0.000 1.250 0 0 1.5708</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>43.400 0.150 2.500</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>43.400 0.150 2.500</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_outer_wall_right'>
+      <static>true</static>
+      <pose>18.370 0.000 1.250 0 0 1.5708</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>43.400 0.150 2.500</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>43.400 0.150 2.500</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_0'>
+      <static>true</static>
+      <pose>-17.170 20.500 1.000 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/CeilingTiled</name>
+            </script>
+            <ambient>0.921569 0.807843 0.615686 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_1'>
+      <static>true</static>
+      <pose>-8.080 20.500 1.250 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_2'>
+      <static>true</static>
+      <pose>-8.080 19.500 1.000 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/CeilingTiled</name>
+            </script>
+            <ambient>0.921569 0.807843 0.615686 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_3'>
+      <static>true</static>
+      <pose>-2.020 19.500 1.000 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/CeilingTiled</name>
+            </script>
+            <ambient>0.921569 0.807843 0.615686 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_4'>
+      <static>true</static>
+      <pose>-7.070 18.500 1.000 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/CeilingTiled</name>
+            </script>
+            <ambient>0.921569 0.807843 0.615686 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_5'>
+      <static>true</static>
+      <pose>-12.120 17.500 1.000 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/CeilingTiled</name>
+            </script>
+            <ambient>0.921569 0.807843 0.615686 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_6'>
+      <static>true</static>
+      <pose>-17.170 15.500 1.000 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/CeilingTiled</name>
+            </script>
+            <ambient>0.921569 0.807843 0.615686 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_7'>
+      <static>true</static>
+      <pose>-1.010 15.500 1.000 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>3.030 1.000 2.000</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>3.030 1.000 2.000</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/CeilingTiled</name>
+            </script>
+            <ambient>0.921569 0.807843 0.615686 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_8'>
+      <static>true</static>
+      <pose>-7.070 14.500 1.250 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>11.110 0.150 2.500</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>11.110 0.150 2.500</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_9'>
+      <static>true</static>
+      <pose>-12.120 13.500 1.250 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_10'>
+      <static>true</static>
+      <pose>-2.020 13.500 1.250 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_11'>
+      <static>true</static>
+      <pose>-13.635 12.500 1.000 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>2.020 1.000 2.000</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>2.020 1.000 2.000</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/CeilingTiled</name>
+            </script>
+            <ambient>0.921569 0.807843 0.615686 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_12'>
+      <static>true</static>
+      <pose>-12.120 12.500 1.250 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_13'>
+      <static>true</static>
+      <pose>-2.020 12.500 1.250 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_14'>
+      <static>true</static>
+      <pose>-12.120 11.500 1.250 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_15'>
+      <static>true</static>
+      <pose>-2.020 11.500 1.250 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_16'>
+      <static>true</static>
+      <pose>1.010 11.500 1.000 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/CeilingTiled</name>
+            </script>
+            <ambient>0.921569 0.807843 0.615686 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_17'>
+      <static>true</static>
+      <pose>-12.120 10.500 1.250 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_18'>
+      <static>true</static>
+      <pose>-2.020 10.500 1.250 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_19'>
+      <static>true</static>
+      <pose>-16.665 9.500 1.000 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>2.020 1.000 2.000</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>2.020 1.000 2.000</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/CeilingTiled</name>
+            </script>
+            <ambient>0.921569 0.807843 0.615686 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_20'>
+      <static>true</static>
+      <pose>-12.120 9.500 1.250 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_21'>
+      <static>true</static>
+      <pose>-2.020 9.500 1.250 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_22'>
+      <static>true</static>
+      <pose>-12.120 8.500 1.250 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_23'>
+      <static>true</static>
+      <pose>-2.020 8.500 1.250 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_24'>
+      <static>true</static>
+      <pose>-12.120 7.500 1.250 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_25'>
+      <static>true</static>
+      <pose>-2.020 7.500 1.250 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_26'>
+      <static>true</static>
+      <pose>2.525 7.500 1.000 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>2.020 1.000 2.000</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>2.020 1.000 2.000</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/CeilingTiled</name>
+            </script>
+            <ambient>0.921569 0.807843 0.615686 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_27'>
+      <static>true</static>
+      <pose>-13.130 6.500 1.000 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/CeilingTiled</name>
+            </script>
+            <ambient>0.921569 0.807843 0.615686 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_28'>
+      <static>true</static>
+      <pose>-12.120 6.500 1.250 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_29'>
+      <static>true</static>
+      <pose>-2.020 6.500 1.250 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_30'>
+      <static>true</static>
+      <pose>-12.120 5.500 1.250 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_31'>
+      <static>true</static>
+      <pose>-2.020 5.500 1.250 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_32'>
+      <static>true</static>
+      <pose>-16.160 4.500 1.000 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/CeilingTiled</name>
+            </script>
+            <ambient>0.921569 0.807843 0.615686 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_33'>
+      <static>true</static>
+      <pose>-7.070 4.500 1.250 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>11.110 0.150 2.500</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>11.110 0.150 2.500</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_34'>
+      <static>true</static>
+      <pose>-1.010 4.500 1.000 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/CeilingTiled</name>
+            </script>
+            <ambient>0.921569 0.807843 0.615686 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_35'>
+      <static>true</static>
+      <pose>-16.160 3.500 1.000 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/CeilingTiled</name>
+            </script>
+            <ambient>0.921569 0.807843 0.615686 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_36'>
+      <static>true</static>
+      <pose>-1.010 3.500 1.000 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/CeilingTiled</name>
+            </script>
+            <ambient>0.921569 0.807843 0.615686 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_37'>
+      <static>true</static>
+      <pose>-7.070 2.500 1.000 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/CeilingTiled</name>
+            </script>
+            <ambient>0.921569 0.807843 0.615686 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_38'>
+      <static>true</static>
+      <pose>-7.070 1.500 1.000 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/CeilingTiled</name>
+            </script>
+            <ambient>0.921569 0.807843 0.615686 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_39'>
+      <static>true</static>
+      <pose>-12.120 0.500 1.000 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/CeilingTiled</name>
+            </script>
+            <ambient>0.921569 0.807843 0.615686 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_40'>
+      <static>true</static>
+      <pose>-17.170 -20.500 1.000 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 1.000 2.000</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/CeilingTiled</name>
+            </script>
+            <ambient>0.921569 0.807843 0.615686 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='map_static_41'>
+      <static>true</static>
+      <pose>-8.080 -20.500 1.250 0 0 0.0000</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry><box><size>1.010 0.150 2.500</size></box></geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wood</name>
+            </script>
+            <ambient>1 1 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="person_map_1_0.5_0.5_1.8">
+      <pose>0 0 0 0 0 0</pose>
+      <link name="link">
+        <collision name="bottom">
+          <pose>0 0 0.01 0 0 1.57</pose>
+          <geometry><box><size>0.35 0.75 0.02</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <pose>0 0 -0.02 0 0 1.57</pose>
+          <geometry><mesh><uri>model://person/meshes/walking.dae</uri></mesh></geometry>
+        </visual>
+      </link>
+      <plugin name="obstacle_motion" filename="libobstaclePathPlugin.so">
+        <loop>0</loop>
+        <velocity>1.000</velocity>
+        <angular_velocity>0.8</angular_velocity>
+        <path>
+          <waypoint>-16.160 20.100 0.0</waypoint>
+          <waypoint>-16.160 20.900 0.0</waypoint>
+        </path>
+      </plugin>
+    </model>
+
+    <model name="person_map_2_0.5_0.5_1.8">
+      <pose>0 0 0 0 0 0</pose>
+      <link name="link">
+        <collision name="bottom">
+          <pose>0 0 0.01 0 0 1.57</pose>
+          <geometry><box><size>0.35 0.75 0.02</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <pose>0 0 -0.02 0 0 1.57</pose>
+          <geometry><mesh><uri>model://person/meshes/walking.dae</uri></mesh></geometry>
+        </visual>
+      </link>
+      <plugin name="obstacle_motion" filename="libobstaclePathPlugin.so">
+        <loop>0</loop>
+        <velocity>1.000</velocity>
+        <angular_velocity>0.8</angular_velocity>
+        <path>
+          <waypoint>-4.040 18.500 0.0</waypoint>
+          <waypoint>-4.040 16.500 0.0</waypoint>
+          <waypoint>-4.040 15.500 0.0</waypoint>
+        </path>
+      </plugin>
+    </model>
+
+    <model name="person_map_3_0.5_0.5_1.8">
+      <pose>0 0 0 0 0 0</pose>
+      <link name="link">
+        <collision name="bottom">
+          <pose>0 0 0.01 0 0 1.57</pose>
+          <geometry><box><size>0.35 0.75 0.02</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <pose>0 0 -0.02 0 0 1.57</pose>
+          <geometry><mesh><uri>model://person/meshes/walking.dae</uri></mesh></geometry>
+        </visual>
+      </link>
+      <plugin name="obstacle_motion" filename="libobstaclePathPlugin.so">
+        <loop>0</loop>
+        <velocity>1.000</velocity>
+        <angular_velocity>0.8</angular_velocity>
+        <path>
+          <waypoint>-12.120 16.500 0.0</waypoint>
+          <waypoint>-10.100 16.500 0.0</waypoint>
+        </path>
+      </plugin>
+    </model>
+
+    <model name="person_map_4_0.5_0.5_1.8">
+      <pose>0 0 0 0 0 0</pose>
+      <link name="link">
+        <collision name="bottom">
+          <pose>0 0 0.01 0 0 1.57</pose>
+          <geometry><box><size>0.35 0.75 0.02</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <pose>0 0 -0.02 0 0 1.57</pose>
+          <geometry><mesh><uri>model://person/meshes/walking.dae</uri></mesh></geometry>
+        </visual>
+      </link>
+      <plugin name="obstacle_motion" filename="libobstaclePathPlugin.so">
+        <loop>0</loop>
+        <velocity>1.000</velocity>
+        <angular_velocity>0.8</angular_velocity>
+        <path>
+          <waypoint>-16.160 13.500 0.0</waypoint>
+          <waypoint>-14.140 13.500 0.0</waypoint>
+          <waypoint>-13.130 13.500 0.0</waypoint>
+        </path>
+      </plugin>
+    </model>
+
+    <model name="person_map_5_0.5_0.5_1.8">
+      <pose>0 0 0 0 0 0</pose>
+      <link name="link">
+        <collision name="bottom">
+          <pose>0 0 0.01 0 0 1.57</pose>
+          <geometry><box><size>0.35 0.75 0.02</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <pose>0 0 -0.02 0 0 1.57</pose>
+          <geometry><mesh><uri>model://person/meshes/walking.dae</uri></mesh></geometry>
+        </visual>
+      </link>
+      <plugin name="obstacle_motion" filename="libobstaclePathPlugin.so">
+        <loop>0</loop>
+        <velocity>1.000</velocity>
+        <angular_velocity>0.8</angular_velocity>
+        <path>
+          <waypoint>-1.010 12.500 0.0</waypoint>
+          <waypoint>1.010 12.500 0.0</waypoint>
+          <waypoint>3.030 12.500 0.0</waypoint>
+        </path>
+      </plugin>
+    </model>
+
+    <model name="person_map_6_0.5_0.5_1.8">
+      <pose>0 0 0 0 0 0</pose>
+      <link name="link">
+        <collision name="bottom">
+          <pose>0 0 0.01 0 0 1.57</pose>
+          <geometry><box><size>0.35 0.75 0.02</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <pose>0 0 -0.02 0 0 1.57</pose>
+          <geometry><mesh><uri>model://person/meshes/walking.dae</uri></mesh></geometry>
+        </visual>
+      </link>
+      <plugin name="obstacle_motion" filename="libobstaclePathPlugin.so">
+        <loop>0</loop>
+        <velocity>1.000</velocity>
+        <angular_velocity>0.8</angular_velocity>
+        <path>
+          <waypoint>-14.140 8.500 0.0</waypoint>
+          <waypoint>-14.140 6.500 0.0</waypoint>
+          <waypoint>-14.140 5.500 0.0</waypoint>
+        </path>
+      </plugin>
+    </model>
+
+    <model name="person_map_7_0.5_0.5_1.8">
+      <pose>0 0 0 0 0 0</pose>
+      <link name="link">
+        <collision name="bottom">
+          <pose>0 0 0.01 0 0 1.57</pose>
+          <geometry><box><size>0.35 0.75 0.02</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <pose>0 0 -0.02 0 0 1.57</pose>
+          <geometry><mesh><uri>model://person/meshes/walking.dae</uri></mesh></geometry>
+        </visual>
+      </link>
+      <plugin name="obstacle_motion" filename="libobstaclePathPlugin.so">
+        <loop>0</loop>
+        <velocity>1.000</velocity>
+        <angular_velocity>0.8</angular_velocity>
+        <path>
+          <waypoint>-11.110 3.500 0.0</waypoint>
+          <waypoint>-11.110 1.500 0.0</waypoint>
+        </path>
+      </plugin>
+    </model>
+
+    <model name="person_map_8_0.5_0.5_1.8">
+      <pose>0 0 0 0 0 0</pose>
+      <link name="link">
+        <collision name="bottom">
+          <pose>0 0 0.01 0 0 1.57</pose>
+          <geometry><box><size>0.35 0.75 0.02</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <pose>0 0 -0.02 0 0 1.57</pose>
+          <geometry><mesh><uri>model://person/meshes/walking.dae</uri></mesh></geometry>
+        </visual>
+      </link>
+      <plugin name="obstacle_motion" filename="libobstaclePathPlugin.so">
+        <loop>0</loop>
+        <velocity>1.000</velocity>
+        <angular_velocity>0.8</angular_velocity>
+        <path>
+          <waypoint>-8.080 3.500 0.0</waypoint>
+          <waypoint>-6.060 3.500 0.0</waypoint>
+          <waypoint>-5.050 3.500 0.0</waypoint>
+        </path>
+      </plugin>
+    </model>
+
+    <model name="person_map_9_0.5_0.5_1.8">
+      <pose>0 0 0 0 0 0</pose>
+      <link name="link">
+        <collision name="bottom">
+          <pose>0 0 0.01 0 0 1.57</pose>
+          <geometry><box><size>0.35 0.75 0.02</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <pose>0 0 -0.02 0 0 1.57</pose>
+          <geometry><mesh><uri>model://person/meshes/walking.dae</uri></mesh></geometry>
+        </visual>
+      </link>
+      <plugin name="obstacle_motion" filename="libobstaclePathPlugin.so">
+        <loop>0</loop>
+        <velocity>1.000</velocity>
+        <angular_velocity>0.8</angular_velocity>
+        <path>
+          <waypoint>-16.160 -20.900 0.0</waypoint>
+          <waypoint>-16.160 -20.100 0.0</waypoint>
+        </path>
+      </plugin>
+    </model>
+
+    <model name="person_map_10_0.5_0.5_1.8">
+      <pose>0 0 0 0 0 0</pose>
+      <link name="link">
+        <collision name="bottom">
+          <pose>0 0 0.01 0 0 1.57</pose>
+          <geometry><box><size>0.35 0.75 0.02</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <pose>0 0 -0.02 0 0 1.57</pose>
+          <geometry><mesh><uri>model://person/meshes/walking.dae</uri></mesh></geometry>
+        </visual>
+      </link>
+      <plugin name="obstacle_motion" filename="libobstaclePathPlugin.so">
+        <loop>0</loop>
+        <velocity>1.000</velocity>
+        <angular_velocity>0.8</angular_velocity>
+        <path>
+          <waypoint>-15.150 20.100 0.0</waypoint>
+          <waypoint>-15.150 20.900 0.0</waypoint>
+        </path>
+      </plugin>
+    </model>
+
+    <model name="person_map_11_0.5_0.5_1.8">
+      <pose>0 0 0 0 0 0</pose>
+      <link name="link">
+        <collision name="bottom">
+          <pose>0 0 0.01 0 0 1.57</pose>
+          <geometry><box><size>0.35 0.75 0.02</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <pose>0 0 -0.02 0 0 1.57</pose>
+          <geometry><mesh><uri>model://person/meshes/walking.dae</uri></mesh></geometry>
+        </visual>
+      </link>
+      <plugin name="obstacle_motion" filename="libobstaclePathPlugin.so">
+        <loop>0</loop>
+        <velocity>1.000</velocity>
+        <angular_velocity>0.8</angular_velocity>
+        <path>
+          <waypoint>-12.120 19.100 0.0</waypoint>
+          <waypoint>-12.120 19.900 0.0</waypoint>
+        </path>
+      </plugin>
+    </model>
+
+    <model name="person_map_12_0.5_0.5_1.8">
+      <pose>0 0 0 0 0 0</pose>
+      <link name="link">
+        <collision name="bottom">
+          <pose>0 0 0.01 0 0 1.57</pose>
+          <geometry><box><size>0.35 0.75 0.02</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <pose>0 0 -0.02 0 0 1.57</pose>
+          <geometry><mesh><uri>model://person/meshes/walking.dae</uri></mesh></geometry>
+        </visual>
+      </link>
+      <plugin name="obstacle_motion" filename="libobstaclePathPlugin.so">
+        <loop>0</loop>
+        <velocity>1.000</velocity>
+        <angular_velocity>0.8</angular_velocity>
+        <path>
+          <waypoint>-11.110 17.500 0.0</waypoint>
+          <waypoint>-11.110 18.500 0.0</waypoint>
+        </path>
+      </plugin>
+    </model>
+
+    <model name="person_map_13_0.5_0.5_1.8">
+      <pose>0 0 0 0 0 0</pose>
+      <link name="link">
+        <collision name="bottom">
+          <pose>0 0 0.01 0 0 1.57</pose>
+          <geometry><box><size>0.35 0.75 0.02</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <pose>0 0 -0.02 0 0 1.57</pose>
+          <geometry><mesh><uri>model://person/meshes/walking.dae</uri></mesh></geometry>
+        </visual>
+      </link>
+      <plugin name="obstacle_motion" filename="libobstaclePathPlugin.so">
+        <loop>0</loop>
+        <velocity>1.000</velocity>
+        <angular_velocity>0.8</angular_velocity>
+        <path>
+          <waypoint>2.020 16.500 0.0</waypoint>
+          <waypoint>0.000 16.500 0.0</waypoint>
+          <waypoint>-1.010 16.500 0.0</waypoint>
+        </path>
+      </plugin>
+    </model>
+
+    <model name="person_map_14_0.5_0.5_1.8">
+      <pose>0 0 0 0 0 0</pose>
+      <link name="link">
+        <collision name="bottom">
+          <pose>0 0 0.01 0 0 1.57</pose>
+          <geometry><box><size>0.35 0.75 0.02</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <pose>0 0 -0.02 0 0 1.57</pose>
+          <geometry><mesh><uri>model://person/meshes/walking.dae</uri></mesh></geometry>
+        </visual>
+      </link>
+      <plugin name="obstacle_motion" filename="libobstaclePathPlugin.so">
+        <loop>0</loop>
+        <velocity>1.000</velocity>
+        <angular_velocity>0.8</angular_velocity>
+        <path>
+          <waypoint>1.010 6.500 0.0</waypoint>
+          <waypoint>-1.010 6.500 0.0</waypoint>
+        </path>
+      </plugin>
+    </model>
+
+    <model name="person_map_15_0.5_0.5_1.8">
+      <pose>0 0 0 0 0 0</pose>
+      <link name="link">
+        <collision name="bottom">
+          <pose>0 0 0.01 0 0 1.57</pose>
+          <geometry><box><size>0.35 0.75 0.02</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <pose>0 0 -0.02 0 0 1.57</pose>
+          <geometry><mesh><uri>model://person/meshes/walking.dae</uri></mesh></geometry>
+        </visual>
+      </link>
+      <plugin name="obstacle_motion" filename="libobstaclePathPlugin.so">
+        <loop>0</loop>
+        <velocity>1.000</velocity>
+        <angular_velocity>0.8</angular_velocity>
+        <path>
+          <waypoint>-2.020 0.500 0.0</waypoint>
+          <waypoint>-2.020 1.500 0.0</waypoint>
+        </path>
+      </plugin>
+    </model>
+
+    <model name="person_map_16_0.5_0.5_1.8">
+      <pose>0 0 0 0 0 0</pose>
+      <link name="link">
+        <collision name="bottom">
+          <pose>0 0 0.01 0 0 1.57</pose>
+          <geometry><box><size>0.35 0.75 0.02</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <pose>0 0 -0.02 0 0 1.57</pose>
+          <geometry><mesh><uri>model://person/meshes/walking.dae</uri></mesh></geometry>
+        </visual>
+      </link>
+      <plugin name="obstacle_motion" filename="libobstaclePathPlugin.so">
+        <loop>0</loop>
+        <velocity>1.000</velocity>
+        <angular_velocity>0.8</angular_velocity>
+        <path>
+          <waypoint>-15.150 -20.900 0.0</waypoint>
+          <waypoint>-15.150 -20.100 0.0</waypoint>
+        </path>
+      </plugin>
+    </model>
+
+    <gravity>0 0 -9.8</gravity>
+    <physics type='ode'>
+      <max_step_size>0.002</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>500</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+  </world>
+</sdf>

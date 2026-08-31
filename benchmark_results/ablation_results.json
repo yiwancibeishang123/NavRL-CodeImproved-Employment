@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "kind": "navrl_ablation_results",
+  "status": "reproduction_ready_pending_isaac_runtime",
+  "integrity": "Intermediate rows are not filled from the full checkpoint.",
+  "variants": [
+    {"name": "baseline_ppo", "step1_geometry": false, "step2_history_risk": false, "step3_cost_critic_lagrange": false, "success_rate": 0.7138671875, "collision_rate": 0.259765625, "source": "archived_wandb_summary"},
+    {"name": "geom_encoder_ppo", "step1_geometry": true, "step2_history_risk": false, "step3_cost_critic_lagrange": false, "success_rate": null, "collision_rate": null, "source": "comparison/train_policy_variants.sh"},
+    {"name": "risk_aux_ppo", "step1_geometry": true, "step2_history_risk": true, "step3_cost_critic_lagrange": false, "success_rate": null, "collision_rate": null, "source": "comparison/train_policy_variants.sh"},
+    {"name": "ours_constrained", "step1_geometry": true, "step2_history_risk": true, "step3_cost_critic_lagrange": true, "success_rate": 0.8486328125, "collision_rate": 0.1103515625, "source": "archived_wandb_summary"}
+  ],
+  "blocking_check": "python3 -c 'import omni' -> ModuleNotFoundError",
+  "reproduction": "bash comparison/train_policy_variants.sh all"
+}

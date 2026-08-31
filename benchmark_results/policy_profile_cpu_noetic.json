@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "kind": "policy_forward_benchmark",
+  "started_at_unix_s": 1787890823.4773557,
+  "checkpoint": {
+    "path": "/tmp/navrl_ws/src/navigation_runner/scripts/ckpts/step3-80new.pt",
+    "sha256": "454a39c494df7e283744d874e3fa8fdb6c4f902609a3d7aa4f0ca5720d20f615",
+    "bytes": 1139865
+  },
+  "config": "/tmp/navrl_ws/src/navigation_runner/scripts/cfg/ppo.yaml",
+  "runtime": {
+    "hostname": "080c2ce05d9b",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.29",
+    "python": "3.8.10",
+    "pid": 2612,
+    "torch": "2.1.2+cu121",
+    "cuda_available": false,
+    "device": "cpu"
+  },
+  "observation": {
+    "state": 8,
+    "lidar": [
+      1,
+      36,
+      4
+    ],
+    "direction": [
+      1,
+      3
+    ],
+    "dynamic_obstacle": [
+      1,
+      5,
+      10
+    ],
+    "action": 3
+  },
+  "model_parameters": 276041,
+  "warmup_iterations": 20,
+  "sample_iterations": 100,
+  "control_period_ms": 50.0,
+  "inference_wall_ms": {
+    "count": 100,
+    "mean": 1.9439111796964426,
+    "p50": 1.8334004998905584,
+    "p95": 2.801776854903437,
+    "max": 2.9871949955122545
+  },
+  "inference_device_ms": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null,
+    "max": null
+  },
+  "serial_throughput_hz": 514.4267960618232,
+  "deadline_miss_rate": 0.0,
+  "p95_budget_margin_ms": 47.19822314509656,
+  "runtime_after": {
+    "process_rss_mib": 437.543,
+    "process_max_rss_mib": 436.941
+  }
+}

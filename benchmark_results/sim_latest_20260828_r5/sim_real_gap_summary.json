@@ -1,0 +1,313 @@
+{
+  "schema_version": 2,
+  "groups": {
+    "clean_sim": {
+      "summary": {
+        "control_records": 790,
+        "command_records": 59,
+        "policy_inference_records": 59,
+        "hold_rate": 0.9126582278481012,
+        "stale_observation_hold_rate": 0.1670886075949367,
+        "safety_intervention_rate": 1.0,
+        "control_overrun_rate": 0.002531645569620253,
+        "timing_degrade_rate": 0.7455696202531645,
+        "timing_degrade_hold_rate": 0.7455696202531645,
+        "control_rate_hz": 19.929275069461983,
+        "command_rate_hz": 19.078947368421048,
+        "configured_control_rate_hz": 20.0,
+        "inference_wall_ms_p50": 5.0372,
+        "inference_wall_ms_p95": 15.47843,
+        "inference_wall_ms_max": 71.4318,
+        "inference_device_ms_p50": null,
+        "inference_device_ms_p95": null,
+        "inference_device_ms_max": null,
+        "control_ms_p50": 0.0,
+        "control_ms_p95": 25.553719999999988,
+        "control_ms_max": 193.2147,
+        "control_period_jitter_ms_p50": 0.9344,
+        "control_period_jitter_ms_p95": 6.561499999999994,
+        "control_period_jitter_ms_max": 143.8339,
+        "scheduler_lag_ms_p50": 140.0,
+        "scheduler_lag_ms_p95": 142.0,
+        "scheduler_lag_ms_max": 227.0,
+        "odom_age_s_p50": 0.016,
+        "odom_age_s_p95": 0.038,
+        "odom_age_s_max": 0.129,
+        "raycast_age_s_p50": 0.014,
+        "raycast_age_s_p95": 0.034,
+        "raycast_age_s_max": 0.167,
+        "obstacle_age_s_p50": 0.024,
+        "obstacle_age_s_p95": 0.047,
+        "obstacle_age_s_max": 0.173,
+        "action_delta_norm_p50": 1.452519,
+        "action_delta_norm_p95": 1.9750851999999997,
+        "action_delta_norm_max": 2.067538,
+        "process_rss_mib_p50": 456.438,
+        "process_rss_mib_p95": 456.64840000000004,
+        "process_rss_mib_max": 456.676,
+        "cuda_allocated_mib_p50": null,
+        "cuda_allocated_mib_p95": null,
+        "cuda_allocated_mib_max": null,
+        "cuda_reserved_mib_p50": null,
+        "cuda_reserved_mib_p95": null,
+        "cuda_reserved_mib_max": null,
+        "serial_policy_throughput_hz": 116.41682432267115,
+        "success_rate": 0.0,
+        "path_length_m": 1.6217094568440902,
+        "average_speed_mps": 0.04900756872998973,
+        "waypoint_error_m": 2.678449437291521
+      },
+      "run_metadata": {
+        "device": "cpu",
+        "torch": "2.1.2+cu121",
+        "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.29",
+        "python": "3.8.10"
+      }
+    },
+    "perturbed_sim": {
+      "summary": {
+        "control_records": 793,
+        "command_records": 149,
+        "policy_inference_records": 149,
+        "hold_rate": 0.78562421185372,
+        "stale_observation_hold_rate": 0.17276166456494324,
+        "safety_intervention_rate": 1.0,
+        "control_overrun_rate": 0.0012610340479192938,
+        "timing_degrade_rate": 0.6128625472887768,
+        "timing_degrade_hold_rate": 0.6128625472887768,
+        "control_rate_hz": 19.937067337948392,
+        "command_rate_hz": 18.3463493244081,
+        "configured_control_rate_hz": 20.0,
+        "inference_wall_ms_p50": 4.7461,
+        "inference_wall_ms_p95": 16.487139999999997,
+        "inference_wall_ms_max": 28.8463,
+        "inference_device_ms_p50": null,
+        "inference_device_ms_p95": null,
+        "inference_device_ms_max": null,
+        "control_ms_p50": 0.0,
+        "control_ms_p95": 34.8868,
+        "control_ms_max": 179.4173,
+        "control_period_jitter_ms_p50": 0.8127500000000001,
+        "control_period_jitter_ms_p95": 7.5978549999999965,
+        "control_period_jitter_ms_max": 129.7173,
+        "scheduler_lag_ms_p50": 125.0,
+        "scheduler_lag_ms_p95": 126.0,
+        "scheduler_lag_ms_max": 213.0,
+        "odom_age_s_p50": 0.013,
+        "odom_age_s_p95": 0.036,
+        "odom_age_s_max": 0.104,
+        "raycast_age_s_p50": 0.009,
+        "raycast_age_s_p95": 0.028,
+        "raycast_age_s_max": 0.176,
+        "obstacle_age_s_p50": 0.011,
+        "obstacle_age_s_p95": 0.046,
+        "obstacle_age_s_max": 0.178,
+        "action_delta_norm_p50": 1.82101,
+        "action_delta_norm_p95": 2.0,
+        "action_delta_norm_max": 2.0,
+        "process_rss_mib_p50": 456.109,
+        "process_rss_mib_p95": 456.266,
+        "process_rss_mib_max": 456.266,
+        "cuda_allocated_mib_p50": null,
+        "cuda_allocated_mib_p95": null,
+        "cuda_allocated_mib_max": null,
+        "cuda_reserved_mib_p50": null,
+        "cuda_reserved_mib_p95": null,
+        "cuda_reserved_mib_max": null,
+        "serial_policy_throughput_hz": 131.67394702818967,
+        "success_rate": 1.0,
+        "completion_time_s": 2.919,
+        "path_length_m": 1.3739363589754543,
+        "average_speed_mps": 0.4706873446301659,
+        "waypoint_error_m": 0.9851862925986491
+      },
+      "run_metadata": {
+        "device": "cpu",
+        "torch": "2.1.2+cu121",
+        "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.29",
+        "python": "3.8.10"
+      }
+    }
+  },
+  "comparison_to_clean": {
+    "perturbed_sim": {
+      "control_records": {
+        "absolute": 3,
+        "relative_percent": 0.37974683544303794
+      },
+      "command_records": {
+        "absolute": 90,
+        "relative_percent": 152.54237288135593
+      },
+      "policy_inference_records": {
+        "absolute": 90,
+        "relative_percent": 152.54237288135593
+      },
+      "hold_rate": {
+        "absolute": -0.12703401599438124,
+        "relative_percent": -13.919122418247042
+      },
+      "stale_observation_hold_rate": {
+        "absolute": 0.005673056970006529,
+        "relative_percent": 3.395238641140271
+      },
+      "safety_intervention_rate": {
+        "absolute": 0.0,
+        "relative_percent": 0.0
+      },
+      "control_overrun_rate": {
+        "absolute": -0.0012706115217009594,
+        "relative_percent": -50.1891551071879
+      },
+      "timing_degrade_rate": {
+        "absolute": -0.13270707296438777,
+        "relative_percent": -17.79942065226933
+      },
+      "timing_degrade_hold_rate": {
+        "absolute": -0.13270707296438777,
+        "relative_percent": -17.79942065226933
+      },
+      "control_rate_hz": {
+        "absolute": 0.00779226848640846,
+        "relative_percent": 0.03909960828604702
+      },
+      "command_rate_hz": {
+        "absolute": -0.7325980440129491,
+        "relative_percent": -3.839824230688562
+      },
+      "configured_control_rate_hz": {
+        "absolute": 0.0,
+        "relative_percent": 0.0
+      },
+      "inference_wall_ms_p50": {
+        "absolute": -0.29110000000000014,
+        "relative_percent": -5.779004208687368
+      },
+      "inference_wall_ms_p95": {
+        "absolute": 1.008709999999997,
+        "relative_percent": 6.516875419535426
+      },
+      "inference_wall_ms_max": {
+        "absolute": -42.585499999999996,
+        "relative_percent": -59.617005311359925
+      },
+      "control_ms_p50": {
+        "absolute": 0.0,
+        "relative_percent": null
+      },
+      "control_ms_p95": {
+        "absolute": 9.333080000000013,
+        "relative_percent": 36.52337115691969
+      },
+      "control_ms_max": {
+        "absolute": -13.797399999999982,
+        "relative_percent": -7.140968052637808
+      },
+      "control_period_jitter_ms_p50": {
+        "absolute": -0.12164999999999992,
+        "relative_percent": -13.019049657534238
+      },
+      "control_period_jitter_ms_p95": {
+        "absolute": 1.0363550000000021,
+        "relative_percent": 15.794482968833393
+      },
+      "control_period_jitter_ms_max": {
+        "absolute": -14.116600000000005,
+        "relative_percent": -9.814515215119666
+      },
+      "scheduler_lag_ms_p50": {
+        "absolute": -15.0,
+        "relative_percent": -10.714285714285714
+      },
+      "scheduler_lag_ms_p95": {
+        "absolute": -16.0,
+        "relative_percent": -11.267605633802818
+      },
+      "scheduler_lag_ms_max": {
+        "absolute": -14.0,
+        "relative_percent": -6.167400881057269
+      },
+      "odom_age_s_p50": {
+        "absolute": -0.003000000000000001,
+        "relative_percent": -18.750000000000007
+      },
+      "odom_age_s_p95": {
+        "absolute": -0.0020000000000000018,
+        "relative_percent": -5.263157894736847
+      },
+      "odom_age_s_max": {
+        "absolute": -0.02500000000000001,
+        "relative_percent": -19.379844961240316
+      },
+      "raycast_age_s_p50": {
+        "absolute": -0.005000000000000001,
+        "relative_percent": -35.71428571428572
+      },
+      "raycast_age_s_p95": {
+        "absolute": -0.006000000000000002,
+        "relative_percent": -17.647058823529417
+      },
+      "raycast_age_s_max": {
+        "absolute": 0.00899999999999998,
+        "relative_percent": 5.389221556886215
+      },
+      "obstacle_age_s_p50": {
+        "absolute": -0.013000000000000001,
+        "relative_percent": -54.16666666666667
+      },
+      "obstacle_age_s_p95": {
+        "absolute": -0.0010000000000000009,
+        "relative_percent": -2.1276595744680873
+      },
+      "obstacle_age_s_max": {
+        "absolute": 0.0050000000000000044,
+        "relative_percent": 2.890173410404627
+      },
+      "action_delta_norm_p50": {
+        "absolute": 0.3684910000000001,
+        "relative_percent": 25.369100163233675
+      },
+      "action_delta_norm_p95": {
+        "absolute": 0.024914800000000348,
+        "relative_percent": 1.2614544425729255
+      },
+      "action_delta_norm_max": {
+        "absolute": -0.06753799999999988,
+        "relative_percent": -3.266590505228919
+      },
+      "process_rss_mib_p50": {
+        "absolute": -0.32900000000000773,
+        "relative_percent": -0.07207988817758551
+      },
+      "process_rss_mib_p95": {
+        "absolute": -0.3824000000000183,
+        "relative_percent": -0.08374057590041227
+      },
+      "process_rss_mib_max": {
+        "absolute": -0.40999999999996817,
+        "relative_percent": -0.0897791869947114
+      },
+      "serial_policy_throughput_hz": {
+        "absolute": 15.257122705518526,
+        "relative_percent": 13.105599464928314
+      },
+      "success_rate": {
+        "absolute": 1.0,
+        "relative_percent": null
+      },
+      "path_length_m": {
+        "absolute": -0.24777309786863588,
+        "relative_percent": -15.27851347372741
+      },
+      "average_speed_mps": {
+        "absolute": 0.4216797759001762,
+        "relative_percent": 860.4380646251751
+      },
+      "waypoint_error_m": {
+        "absolute": -1.6932631446928719,
+        "relative_percent": -63.21803656689966
+      }
+    }
+  },
+  "physical_log_supplied": false
+}

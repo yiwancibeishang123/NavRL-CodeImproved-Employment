@@ -1,0 +1,16 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <model name='hifi_marker'>
+    <static>true</static>
+    <link name='link'>
+      <visual name='visual'>
+        <pose>0 0 1.0 0 0 0</pose>
+        <geometry><box><size>0.35 0.35 2.0</size></box></geometry>
+        <material>
+          <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Blue</name></script>
+          <ambient>0.0 0.1 1.0 1.0</ambient><diffuse>0.0 0.1 1.0 1.0</diffuse>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

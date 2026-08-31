@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "kind": "gazebo_rgbd_calibration_truth_evaluation",
+  "environment": "Gazebo Classic RGB-D simulation, not physical calibration",
+  "target_model": "person1_0.5_0.5_1.8",
+  "result": "passed",
+  "camera": {
+    "width": 640,
+    "height": 480,
+    "fx": 554.254691191187,
+    "fy": 554.254691191187,
+    "cx": 320.5,
+    "cy": 240.5,
+    "depth_encoding": "32FC1"
+  },
+  "body_to_camera": {
+    "translation_m": [
+      0.09,
+      0.0,
+      0.095
+    ],
+    "quaternion_xyzw": [
+      -0.4999998414659176,
+      0.49960183664463365,
+      -0.4999998414659176,
+      0.5003981633553665
+    ]
+  },
+  "truth_range_m": 2.115269758408635,
+  "intrinsic_max_abs_error_px": 0.0,
+  "depth_range_error_m": {
+    "count": 1,
+    "p50": 0.21278266697588588
+  },
+  "criteria": {
+    "expected_intrinsics": [
+      554.254691191187,
+      554.254691191187,
+      320.5,
+      240.5
+    ],
+    "expected_depth_encoding": "32FC1",
+    "max_intrinsic_error_px": 0.001,
+    "note": "RGB-D range test is diagnostic because generic scene percentiles are not a target segmentation metric."
+  }
+}

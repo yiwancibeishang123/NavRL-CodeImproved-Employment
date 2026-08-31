@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "kind": "gazebo_lidar_only_visual_failure_fallback",
+  "visual_watchdog_degraded": true,
+  "target_model": "person1_0.5_0.5_1.8",
+  "obstacle_position_m": [
+    0.9,
+    0.0,
+    0.1
+  ],
+  "independent_sensor": "Gazebo depth-derived occupancy-map raycast; no YOLO/tracker obstacle state used",
+  "escape_commands_after_obstacle": 63,
+  "first_escape_latency_s": 1.3384,
+  "first_local_velocity_mps": [
+    -0.44999999917668965,
+    -2.722093647483596e-05,
+    0.0
+  ],
+  "result": "passed"
+}

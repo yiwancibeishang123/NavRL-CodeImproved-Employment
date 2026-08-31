@@ -1,0 +1,53 @@
+<launch>
+  <!-- Start the simulator separately, then use this launch for one logged run. -->
+  <arg name="run_label" default="clean_sim" />
+  <arg name="metrics_log" default="$(env HOME)/navrl_logs/clean_sim_metrics.jsonl" />
+  <arg name="observation_trace_log" default="$(env HOME)/navrl_logs/clean_sim_observations.jsonl" />
+  <arg name="metrics_resource_stride" default="20" />
+  <arg name="device" default="cpu" />
+  <arg name="use_px4" default="false" />
+  <arg name="rviz" default="false" />
+  <arg name="sim_real_perturbation_enabled" default="false" />
+  <arg name="sim_real_perturbation_seed" default="7" />
+  <arg name="lidar_noise_std" default="0.0" />
+  <arg name="lidar_dropout_ratio" default="0.0" />
+  <arg name="obstacle_position_noise_std" default="0.0" />
+  <arg name="obstacle_velocity_noise_std" default="0.0" />
+  <arg name="obstacle_dropout_ratio" default="0.0" />
+  <arg name="state_noise_std" default="0.0" />
+  <arg name="observation_delay_steps" default="0" />
+  <arg name="policy_variant" default="improved_navrl" />
+  <arg name="model_checkpoint" default="$(find navigation_runner)/scripts/ckpts/step3-80new.pt" />
+  <arg name="cruise_speed_mps" default="2.0" />
+  <arg name="timing_degrade_max_lag_ms" default="200.0" />
+  <arg name="sensor_timeout" default="0.5" />
+  <arg name="obstacle_timeout" default="0.5" />
+
+  <include file="$(find navigation_runner)/launch/navrl_deployment.launch">
+    <arg name="real" value="false" />
+    <arg name="use_px4" value="$(arg use_px4)" />
+    <arg name="rviz" value="$(arg rviz)" />
+    <arg name="use_safety_shield" value="true" />
+    <arg name="device" value="$(arg device)" />
+    <arg name="auto_takeoff" value="true" />
+    <arg name="model_checkpoint" value="$(arg model_checkpoint)" />
+    <arg name="policy_variant" value="$(arg policy_variant)" />
+    <arg name="run_label" value="$(arg run_label)" />
+    <arg name="metrics_log" value="$(arg metrics_log)" />
+    <arg name="observation_trace_log" value="$(arg observation_trace_log)" />
+    <arg name="metrics_resource_stride" value="$(arg metrics_resource_stride)" />
+    <arg name="sim_real_perturbation_enabled" value="$(arg sim_real_perturbation_enabled)" />
+    <arg name="sim_real_perturbation_seed" value="$(arg sim_real_perturbation_seed)" />
+    <arg name="lidar_noise_std" value="$(arg lidar_noise_std)" />
+    <arg name="lidar_dropout_ratio" value="$(arg lidar_dropout_ratio)" />
+    <arg name="obstacle_position_noise_std" value="$(arg obstacle_position_noise_std)" />
+    <arg name="obstacle_velocity_noise_std" value="$(arg obstacle_velocity_noise_std)" />
+    <arg name="obstacle_dropout_ratio" value="$(arg obstacle_dropout_ratio)" />
+    <arg name="state_noise_std" value="$(arg state_noise_std)" />
+    <arg name="observation_delay_steps" value="$(arg observation_delay_steps)" />
+    <arg name="cruise_speed_mps" value="$(arg cruise_speed_mps)" />
+    <arg name="timing_degrade_max_lag_ms" value="$(arg timing_degrade_max_lag_ms)" />
+    <arg name="sensor_timeout" value="$(arg sensor_timeout)" />
+    <arg name="obstacle_timeout" value="$(arg obstacle_timeout)" />
+  </include>
+</launch>

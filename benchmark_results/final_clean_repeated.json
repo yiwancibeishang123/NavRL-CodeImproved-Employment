@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "kind": "gazebo_repeated_mission_metrics",
+  "group": "clean_sim",
+  "runs": 5,
+  "success_rate": {
+    "mean": 1.0,
+    "std": 0.0,
+    "count": 5
+  },
+  "collision_rate": {
+    "mean": 0.0,
+    "std": 0.0,
+    "count": 5,
+    "status": "raycast_geometry_proxy"
+  },
+  "metrics": {
+    "success_rate": {
+      "mean": null,
+      "std": null,
+      "count": 0
+    },
+    "average_speed_mps": {
+      "mean": 0.8204895743397692,
+      "std": 0.31294822266993044,
+      "count": 5
+    },
+    "waypoint_error_m": {
+      "mean": 0.9451006128372146,
+      "std": 0.05209375412048646,
+      "count": 5
+    },
+    "completion_time_s": {
+      "mean": 2.149,
+      "std": 1.4793732456685837,
+      "count": 5
+    },
+    "path_length_m": {
+      "mean": 1.445730347823403,
+      "std": 0.6305344687711536,
+      "count": 5
+    }
+  },
+  "per_run": [
+    {
+      "outcome": "success",
+      "completion_time_s": 0.632,
+      "path_length_m": 0.9019919341424989,
+      "average_speed_mps": 1.4272024274406627,
+      "observed_speed_mps": 1.4435429540923885,
+      "waypoint_error_m": 0.9745257494283477,
+      "initial_goal_distance_m": 1.7791252018534403,
+      "min_lidar_distance_m": 1.3701485874703994,
+      "source": "benchmark_results/sim_restart_test/clean_sim_1_mission_metrics.json",
+      "episode_index": 1
+    },
+    {
+      "outcome": "success",
+      "completion_time_s": 4.984,
+      "path_length_m": 2.6769200963799715,
+      "average_speed_mps": 0.5371027480698177,
+      "observed_speed_mps": 0.554115698357672,
+      "waypoint_error_m": 0.9943182057058997,
+      "initial_goal_distance_m": 2.001599740630719,
+      "source": "benchmark_results/sim_speed_20260828_r2/clean_sim_mission_metrics.json",
+      "episode_index": 1
+    },
+    {
+      "outcome": "success",
+      "completion_time_s": 1.7610000000000001,
+      "path_length_m": 1.3286787215176687,
+      "average_speed_mps": 0.7545023972275233,
+      "observed_speed_mps": 0.7727756239194997,
+      "waypoint_error_m": 0.9559256688348869,
+      "initial_goal_distance_m": 2.001524007651116,
+      "source": "benchmark_results/sim_speed_20260828_r3/clean_sim_mission_metrics.json",
+      "episode_index": 1
+    },
+    {
+      "outcome": "success",
+      "completion_time_s": 1.787,
+      "path_length_m": 1.1583028164473448,
+      "average_speed_mps": 0.6481828855329294,
+      "observed_speed_mps": 0.6568274291088257,
+      "waypoint_error_m": 0.955869701226367,
+      "initial_goal_distance_m": 2.0015737038267662,
+      "source": "benchmark_results/sim_speed_20260828_r4/clean_sim_mission_metrics.json",
+      "episode_index": 1
+    },
+    {
+      "outcome": "success",
+      "completion_time_s": 1.581,
+      "path_length_m": 1.1627581706295311,
+      "average_speed_mps": 0.7354574134279135,
+      "observed_speed_mps": 0.7345110005181748,
+      "waypoint_error_m": 0.8448637389905712,
+      "initial_goal_distance_m": 2.0010952962561466,
+      "source": "benchmark_results/sim_speed_20260828_r6/clean_sim_mission_metrics.json",
+      "episode_index": 1
+    }
+  ],
+  "acceptance": {
+    "minimum_runs": true,
+    "success_rate_ge_0_80": true,
+    "success_rate_std_lt_0_05": true,
+    "collision_rate_lt_0_15": true,
+    "average_speed_mps_ge_target": true,
+    "waypoint_error_m_le_target": true,
+    "speed_target_mps": 0.35,
+    "waypoint_target_m": 1.0
+  },
+  "result": "passed"
+}

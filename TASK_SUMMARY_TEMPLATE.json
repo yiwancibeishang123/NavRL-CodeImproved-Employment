@@ -1,0 +1,9 @@
+{
+  "run_label": "replace_with_clean_sim_or_perturbed_sim_or_physical",
+  "num_episodes": null,
+  "success_rate": null,
+  "collision_rate": null,
+  "completion_time_s": null,
+  "path_length_m": null,
+  "notes": "Fill only from completed task episodes. Null means unavailable, not zero."
+}

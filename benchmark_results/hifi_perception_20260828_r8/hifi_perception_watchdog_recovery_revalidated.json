@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "kind": "gazebo_perception_watchdog_recovery",
+  "challenge": {
+    "combined_duration_s": 8.007,
+    "clean_duration_s": 12.268,
+    "require_detection": true
+  },
+  "degraded_during_combined": true,
+  "automatic_recovery_after_clean": true,
+  "recovery_latency_s": 0.4766,
+  "positive_detection_events_after_clean": 142,
+  "watchdog_transitions": [
+    {
+      "offset_s": -0.1335,
+      "degraded": true
+    },
+    {
+      "offset_s": 8.4835,
+      "degraded": false
+    }
+  ],
+  "result": "passed"
+}

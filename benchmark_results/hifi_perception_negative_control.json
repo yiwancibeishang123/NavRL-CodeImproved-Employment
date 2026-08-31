@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "kind": "gazebo_high_fidelity_perception_truth_evaluation",
+  "target_model": "",
+  "evaluation_mode": "detector_only_no_target",
+  "duration_s": 20.0,
+  "limits": {
+    "minimum_tracker_samples": 5,
+    "position_p95_m": 1.5,
+    "velocity_p95_mps": 1.5,
+    "truth_source": "/gazebo/model_states; velocity differentiated from pose"
+  },
+  "result": "passed",
+  "camera": {
+    "color_messages": 242,
+    "depth_messages": 241
+  },
+  "yolo": {
+    "positive_box_messages": 0,
+    "detector_messages": 243,
+    "negative_box_messages": 243,
+    "out_of_view_positive_samples": 0,
+    "eligible_visibility_samples": 0,
+    "eligible_positive_samples": 0,
+    "eligible_missed_samples": 0,
+    "eligible_miss_rate": null,
+    "max_consecutive_eligible_misses": 0,
+    "false_positive_assessment": "estimated_no_target_control",
+    "false_positive_proxy_out_of_view_positive_samples": null,
+    "false_positive_frame_rate": 0.0,
+    "forward_ms": {
+      "count": 213,
+      "mean": 13.763367576962402,
+      "p50": 12.573579995660111,
+      "p95": 19.191316998330876,
+      "max": 64.006574000814
+    },
+    "callback_ms": {
+      "count": 243,
+      "mean": 14.530061690736593,
+      "p50": 14.954939993913285,
+      "p95": 22.919494097004634,
+      "max": 76.80629601236433
+    }
+  },
+  "tracker": {
+    "matched_samples": 0,
+    "position_error_m": {
+      "count": 0,
+      "mean": null,
+      "p50": null,
+      "p95": null,
+      "max": null
+    },
+    "velocity_error_mps": {
+      "count": 0,
+      "mean": null,
+      "p50": null,
+      "p95": null,
+      "max": null
+    },
+    "last_service_error": null
+  },
+  "sample_preview": []
+}

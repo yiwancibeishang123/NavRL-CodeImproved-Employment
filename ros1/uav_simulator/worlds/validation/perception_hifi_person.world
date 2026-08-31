@@ -1,0 +1,49 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <!-- Textured 3-D human target for camera/depth/tracker validation. -->
+  <world name='perception_hifi_person'>
+    <physics name='ode' type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <include><uri>model://ground_plane</uri></include>
+    <include><uri>model://sun</uri></include>
+    <scene>
+      <ambient>0.45 0.45 0.45 1</ambient>
+      <background>0.55 0.65 0.75 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <model name='person1_0.5_0.5_1.8'>
+      <link name='link'>
+        <collision name='bottom'>
+          <pose>0 0 0.01 0 0 1.57</pose>
+          <geometry><box><size>0.35 0.75 0.02</size></box></geometry>
+        </collision>
+        <visual name='visual'>
+          <pose>0 0 -0.02 0 0 1.57</pose>
+          <geometry><mesh><uri>model://person/meshes/walking.dae</uri></mesh></geometry>
+        </visual>
+      </link>
+      <plugin name='obstacle_motion' filename='libobstaclePathPlugin.so'>
+        <loop>1</loop>
+        <velocity>0.45</velocity>
+        <angular_velocity>0.8</angular_velocity>
+        <path>
+          <waypoint>2.2 -0.9 0.0</waypoint>
+          <waypoint>2.2 0.9 0.0</waypoint>
+        </path>
+      </plugin>
+    </model>
+    <model name='background_wall'>
+      <static>true</static>
+      <pose>5.5 0 1.5 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>0.2 8 3</size></box></geometry></collision>
+        <visual name='visual'>
+          <geometry><box><size>0.2 8 3</size></box></geometry>
+          <material><ambient>0.65 0.65 0.65 1</ambient><diffuse>0.65 0.65 0.65 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>

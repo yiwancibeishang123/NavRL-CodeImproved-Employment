@@ -1,0 +1,34 @@
+<launch>
+  <!--
+    This launch file starts only the navigation stack.  Gazebo is started by
+    uav_simulator/start.launch in the container entrypoint and must not be
+    launched a second time from the demo terminal.
+  -->
+  <arg name="rviz" default="false" />
+  <arg name="device" default="cpu" />
+  <arg name="run_label" default="low_altitude_obstacle_demo" />
+  <arg name="metrics_log" default="/tmp/low_altitude_obstacle_demo.jsonl" />
+  <arg name="model_checkpoint" default="$(find navigation_runner)/scripts/ckpts/step3-80new.pt" />
+
+  <include file="$(find navigation_runner)/launch/safety_and_perception_sim.launch">
+    <arg name="rviz" value="$(arg rviz)" />
+    <arg name="device" value="$(arg device)" />
+    <arg name="model_checkpoint" value="$(arg model_checkpoint)" />
+    <arg name="use_safety_shield" value="true" />
+    <arg name="require_safety_shield" value="true" />
+    <arg name="auto_takeoff" value="true" />
+    <arg name="hold_height" value="1.0" />
+    <arg name="height_control" value="false" />
+    <arg name="policy_always_on" value="true" />
+    <arg name="deployment_guidance_enabled" value="true" />
+    <arg name="policy_residual_weight" value="0.35" />
+    <arg name="goal_guidance_speed_mps" value="0.8" />
+    <arg name="lidar_avoidance_distance_m" value="1.4" />
+    <arg name="mission_goal_tolerance_m" value="0.30" />
+    <!-- The desktop simulator can fall behind wall time while rendering.
+         Obstacle and stale-sensor protections stay enabled for this demo. -->
+    <arg name="timing_degrade_enabled" value="false" />
+    <arg name="run_label" value="$(arg run_label)" />
+    <arg name="metrics_log" value="$(arg metrics_log)" />
+  </include>
+</launch>

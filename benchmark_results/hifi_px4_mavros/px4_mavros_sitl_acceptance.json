@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "kind": "px4_gazebo_mavros_sitl_offboard_acceptance",
+  "environment": "PX4 SITL + Gazebo Garden + ROS 2 Humble MAVROS; no physical vehicle",
+  "result": "passed",
+  "target_height_m": 1.0,
+  "initial_state": {
+    "connected": true,
+    "armed": false,
+    "mode": "CMODE(50593792)"
+  },
+  "pre_offboard_diagnostics": {
+    "estimator": {
+      "attitude_status_flag": true,
+      "velocity_horiz_status_flag": true,
+      "velocity_vert_status_flag": true,
+      "pos_horiz_rel_status_flag": true,
+      "pos_horiz_abs_status_flag": true,
+      "pos_vert_abs_status_flag": true,
+      "pos_vert_agl_status_flag": true,
+      "const_pos_mode_status_flag": false,
+      "gps_glitch_status_flag": false,
+      "accel_error_status_flag": false
+    },
+    "recent_status_text": []
+  },
+  "offboard_state": {
+    "armed": true,
+    "mode": "OFFBOARD"
+  },
+  "takeoff": {
+    "samples": 123,
+    "last_altitude_m": 0.8120407462120056,
+    "reached_target": true,
+    "tolerance_m": 0.2
+  },
+  "services": {
+    "offboard_set_mode_ms": 200.79875599913066,
+    "arm_ms": 100.74842999893008,
+    "land_set_mode_ms": 1.3240660009614658
+  },
+  "setpoint_stream": {
+    "count": 529,
+    "interval_ms_p50": 50.08047249975789,
+    "interval_ms_p95": 50.129223901967634
+  },
+  "hold_altitude": {
+    "samples": 100,
+    "mean_m": 0.9158653599023819,
+    "error_p95_m": 0.1680338978767395
+  },
+  "final_state": {
+    "connected": true,
+    "armed": true,
+    "mode": "AUTO.LAND"
+  }
+}

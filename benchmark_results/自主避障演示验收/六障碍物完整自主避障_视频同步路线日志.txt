@@ -1,0 +1,22 @@
+[INFO] [1787987510.055083, 0.000000]: Full route has 10 points, including return to spawn
+[INFO] [1787987510.157997, 165.177000]: Waypoint 1/10 -> (2.80, -0.90)
+[INFO] [1787987518.653291, 173.394000]: Waypoint 1 reached, error 0.297 m
+[INFO] [1787987519.173275, 173.895000]: Waypoint 2/10 -> (4.90, -1.10)
+[INFO] [1787987525.564200, 180.035000]: Waypoint 2 reached, error 0.285 m
+[INFO] [1787987526.089164, 180.538000]: Waypoint 3/10 -> (7.00, 0.00)
+[INFO] [1787987533.796657, 187.987000]: Waypoint 3 reached, error 0.282 m
+[INFO] [1787987534.321400, 188.488000]: Waypoint 4/10 -> (6.60, -2.30)
+[INFO] [1787987545.290437, 199.064000]: Waypoint 4 reached, error 0.297 m
+[INFO] [1787987545.811225, 199.566000]: Waypoint 5/10 -> (7.90, -2.30)
+[INFO] [1787987554.033003, 207.516000]: Waypoint 5 reached, error 0.254 m
+[INFO] [1787987554.542108, 208.017000]: Waypoint 6/10 -> (9.70, -0.30)
+[INFO] [1787987563.122972, 216.269000]: Waypoint 6 reached, error 0.298 m
+[INFO] [1787987563.642659, 216.771000]: Waypoint 7/10 -> (9.70, -2.30)
+[INFO] [1787987572.298259, 225.164000]: Waypoint 7 reached, error 0.296 m
+[INFO] [1787987572.824412, 225.665000]: Waypoint 8/10 -> (0.80, -2.30)
+[INFO] [1787987590.654292, 242.899000]: Waypoint 8 reached, error 0.290 m
+[INFO] [1787987591.166848, 243.402000]: Waypoint 9/10 -> (0.80, 0.00)
+[INFO] [1787987612.883679, 264.446000]: Waypoint 9 reached, error 0.298 m
+[INFO] [1787987613.405033, 264.947000]: Waypoint 10/10 -> (0.00, 0.00)
+[INFO] [1787987617.509171, 268.959000]: Waypoint 10 reached, error 0.294 m
+[INFO] [1787987618.026469, 269.460000]: Full six-obstacle route completed and returned to spawn

@@ -1,0 +1,30 @@
+# Hardware-neutral deployment defaults. Override these in the launch command.
+rl:
+  use_px4: false
+
+navigation_runner:
+  device: cpu
+  model_checkpoint: "$(find navigation_runner)/scripts/ckpts/step3-80new.pt"
+  auto_takeoff: false
+  use_policy_server: false
+  control_period: 0.05
+  timing_degrade_enabled: true
+  timing_degrade_consecutive_cycles: 2
+  timing_degrade_max_lag_ms: 20.0
+  timing_degrade_hold_s: 0.5
+  sensor_timeout: 0.5
+  obstacle_timeout: 0.5
+  robot_size: 0.30
+  height_control: false
+  run_label: unlabeled
+  metrics_log: ""
+  observation_trace_log: ""
+  sim_real_perturbation_enabled: false
+  sim_real_perturbation_seed: 7
+  lidar_noise_std: 0.0
+  lidar_dropout_ratio: 0.0
+  obstacle_position_noise_std: 0.0
+  obstacle_velocity_noise_std: 0.0
+  obstacle_dropout_ratio: 0.0
+  state_noise_std: 0.0
+  observation_delay_steps: 0

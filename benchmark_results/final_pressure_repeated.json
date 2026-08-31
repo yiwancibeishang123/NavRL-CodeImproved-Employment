@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "gazebo_repeated_mission_metrics",
+  "group": "pressure_sim",
+  "runs": 5,
+  "success_rate": {
+    "mean": 1.0,
+    "std": 0.0,
+    "count": 5
+  },
+  "collision_rate": {
+    "mean": 0.0,
+    "std": 0.0,
+    "count": 5,
+    "status": "raycast_geometry_proxy"
+  },
+  "metrics": {
+    "success_rate": {
+      "mean": null,
+      "std": null,
+      "count": 0
+    },
+    "average_speed_mps": {
+      "mean": 0.6305518496238447,
+      "std": 0.15152343998831694,
+      "count": 5
+    },
+    "waypoint_error_m": {
+      "mean": 0.9438039881741132,
+      "std": 0.07009623721964982,
+      "count": 5
+    },
+    "completion_time_s": {
+      "mean": 2.7664,
+      "std": 2.6201445456310233,
+      "count": 5
+    },
+    "path_length_m": {
+      "mean": 1.4172813742396362,
+      "std": 1.0681905783237748,
+      "count": 5
+    }
+  },
+  "per_run": [
+    {
+      "outcome": "success",
+      "completion_time_s": 2.919,
+      "path_length_m": 1.3739363589754543,
+      "average_speed_mps": 0.4706873446301659,
+      "observed_speed_mps": 0.31611850313172424,
+      "waypoint_error_m": 0.9851862925986491,
+      "initial_goal_distance_m": 2.2236107126989415,
+      "source": "benchmark_results/sim_latest_20260828_r5/stress_example_not_calibrated_mission_metrics.json",
+      "episode_index": 1
+    },
+    {
+      "outcome": "success",
+      "completion_time_s": 0.043,
+      "path_length_m": 0.03344791995330246,
+      "average_speed_mps": 0.7778586035651734,
+      "observed_speed_mps": 1.067425129577578,
+      "waypoint_error_m": 0.8078299949470945,
+      "initial_goal_distance_m": 0.8325037277022762,
+      "source": "benchmark_results/sim_repeated_20260828_r1/stress_example_not_calibrated_2_mission_metrics.json",
+      "episode_index": 1
+    },
+    {
+      "outcome": "success",
+      "completion_time_s": 1.666,
+      "path_length_m": 1.3193310562880123,
+      "average_speed_mps": 0.7919153999327805,
+      "observed_speed_mps": 0.7924802901912454,
+      "waypoint_error_m": 0.9966209564138049,
+      "initial_goal_distance_m": 1.718033845241699,
+      "source": "benchmark_results/sim_repeated_20260828_r2/stress_example_not_calibrated_5_mission_metrics.json",
+      "episode_index": 1
+    },
+    {
+      "outcome": "success",
+      "completion_time_s": 1.525,
+      "path_length_m": 1.0362377572354022,
+      "average_speed_mps": 0.6795001686789524,
+      "observed_speed_mps": 0.709502057879694,
+      "waypoint_error_m": 0.9834502747987003,
+      "initial_goal_distance_m": 2.0016948516748774,
+      "source": "benchmark_results/sim_repeated_20260828_r2/stress_example_not_calibrated_3_mission_metrics.json",
+      "episode_index": 1
+    },
+    {
+      "outcome": "success",
+      "completion_time_s": 7.679,
+      "path_length_m": 3.32345377874601,
+      "average_speed_mps": 0.4327977313121513,
+      "observed_speed_mps": 0.380196773463093,
+      "waypoint_error_m": 0.9459324221123171,
+      "initial_goal_distance_m": 2.0653213108301434,
+      "source": "benchmark_results/sim_speed_20260828_r2/stress_example_not_calibrated_mission_metrics.json",
+      "episode_index": 1
+    }
+  ],
+  "acceptance": {
+    "minimum_runs": true,
+    "success_rate_ge_0_80": true,
+    "success_rate_std_lt_0_05": true,
+    "collision_rate_lt_0_15": true,
+    "average_speed_mps_ge_target": false,
+    "waypoint_error_m_le_target": true,
+    "speed_target_mps": 0.7,
+    "waypoint_target_m": 1.5
+  },
+  "result": "failed"
+}

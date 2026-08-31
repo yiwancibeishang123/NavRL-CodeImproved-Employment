@@ -1,0 +1,148 @@
+<launch>
+    <arg name="use_px4" default="false" />
+    <arg name="use_prebuilt_map" default="false" />
+    <arg name="use_real_detector" default="false" />
+    <arg name="use_safety_shield" default="true" />
+    <arg name="rviz" default="true" />
+    <arg name="model_checkpoint" default="$(find navigation_runner)/scripts/ckpts/step3-80new.pt" />
+    <arg name="device" default="cuda:0" />
+    <arg name="auto_takeoff" default="true" />
+    <arg name="require_safety_shield" default="false" />
+    <arg name="run_label" default="unlabeled" />
+    <arg name="metrics_log" default="" />
+    <arg name="observation_trace_log" default="" />
+    <arg name="metrics_resource_stride" default="20" />
+    <arg name="sim_real_perturbation_enabled" default="false" />
+    <arg name="sim_real_perturbation_seed" default="7" />
+    <arg name="lidar_noise_std" default="0.0" />
+    <arg name="lidar_dropout_ratio" default="0.0" />
+    <arg name="obstacle_position_noise_std" default="0.0" />
+    <arg name="obstacle_velocity_noise_std" default="0.0" />
+    <arg name="obstacle_dropout_ratio" default="0.0" />
+    <arg name="state_noise_std" default="0.0" />
+    <arg name="observation_delay_steps" default="0" />
+    <arg name="timing_degrade_enabled" default="true" />
+    <arg name="timing_degrade_consecutive_cycles" default="2" />
+    <arg name="timing_degrade_max_lag_ms" default="20.0" />
+    <arg name="timing_degrade_hold_s" default="0.5" />
+    <arg name="sensor_timeout" default="0.5" />
+    <arg name="obstacle_timeout" default="0.5" />
+    <arg name="cruise_speed_mps" default="0.0" />
+    <arg name="perception_watchdog_enabled" default="true" />
+    <arg name="perception_watchdog_required" default="false" />
+    <arg name="perception_timeout" default="0.5" />
+    <arg name="perception_require_detection" default="false" />
+    <arg name="perception_lidar_fallback_enabled" default="true" />
+    <arg name="perception_lidar_escape_distance_m" default="1.4" />
+    <arg name="perception_lidar_escape_speed_mps" default="0.45" />
+    <arg name="mission_goal_tolerance_m" default="1.0" />
+    <arg name="hold_height" default="1.0" />
+    <arg name="height_control" default="false" />
+    <arg name="color_topic" default="/camera/color/image_raw" />
+    <arg name="policy_variant" default="improved_navrl" />
+    <arg name="policy_always_on" default="true" />
+    <arg name="deployment_guidance_enabled" default="true" />
+    <arg name="policy_residual_weight" default="0.35" />
+    <arg name="goal_guidance_speed_mps" default="0.8" />
+    <arg name="lidar_avoidance_distance_m" default="1.4" />
+    
+    <!-- PX4 -->
+    <param name="rl/use_px4" value="$(arg use_px4)" />
+
+    <!-- mapping -->
+    <group if="$(arg use_prebuilt_map)">
+        <group if="$(arg use_px4)">
+	        <rosparam file="$(find navigation_runner)/cfg/mapping/sim/prebuilt_map_px4.yaml" ns="/occupancy_map"  />
+        </group>
+        <group unless="$(arg use_px4)">
+	        <rosparam file="$(find navigation_runner)/cfg/mapping/sim/prebuilt_map.yaml" ns="/occupancy_map"  />
+        </group>
+    </group>
+    <group unless="$(arg use_prebuilt_map)">
+        <group if="$(arg use_px4)">
+	        <rosparam file="$(find navigation_runner)/cfg/mapping/sim/no_map_px4.yaml" ns="/occupancy_map"  />
+        </group>
+        <group unless="$(arg use_px4)">
+	        <rosparam file="$(find navigation_runner)/cfg/mapping/sim/no_map.yaml" ns="/occupancy_map"  />
+        </group>
+    </group>
+	<node pkg="map_manager" type="occupancy_map_node" name="occupancy_map_node" output="screen" />
+
+    <!-- detection -->
+    <group if="$(arg use_real_detector)">
+        <group if="$(arg use_px4)">
+            <rosparam file="$(find navigation_runner)/cfg/detection/sim/real_detector_px4.yaml" ns="/onboard_detector" />
+	    </group>
+        <group unless="$(arg use_px4)">
+            <rosparam file="$(find navigation_runner)/cfg/detection/sim/real_detector.yaml" ns="/onboard_detector" />
+	    </group>
+        <node pkg="onboard_detector" type="detector_node" name="detector_node" output="screen" />
+        <node pkg="onboard_detector" type="yolo_detector_node.py" name="yolo_detector_node" output="screen">
+            <param name="image_topic" value="$(arg color_topic)" />
+        </node>
+        <node pkg="onboard_detector" type="perception_watchdog.py" name="perception_watchdog" output="screen">
+            <param name="require_detection" value="$(arg perception_require_detection)" />
+        </node>
+    </group>
+    <group unless="$(arg use_real_detector)">
+        <group if="$(arg use_px4)">
+            <rosparam file="$(find navigation_runner)/cfg/detection/sim/fake_detector_px4.yaml" />
+	    </group>
+        <group unless="$(arg use_px4)">
+            <rosparam file="$(find navigation_runner)/cfg/detection/sim/fake_detector.yaml" />
+	    </group>
+        <node pkg="onboard_detector" type="fake_detector_node" name="fake_detector_node" output="screen" />
+    </group>
+
+    <!-- safety -->
+    <group if="$(arg use_safety_shield)">
+ 	    <include file="$(find navigation_runner)/launch/safety_shield.launch" />
+    </group>
+	
+    <!-- visualization -->
+    <group if="$(arg rviz)">
+ 	    <include file="$(find navigation_runner)/launch/rviz.launch" />
+    </group>
+
+    <node pkg="navigation_runner" type="navigation_node.py" name="navigation_node" output="screen">
+        <param name="model_checkpoint" value="$(arg model_checkpoint)" />
+        <param name="device" value="$(arg device)" />
+        <param name="auto_takeoff" value="$(arg auto_takeoff)" />
+        <param name="require_safety_shield" value="$(arg require_safety_shield)" />
+        <param name="run_label" value="$(arg run_label)" />
+        <param name="metrics_log" value="$(arg metrics_log)" />
+        <param name="observation_trace_log" value="$(arg observation_trace_log)" />
+        <param name="metrics_resource_stride" value="$(arg metrics_resource_stride)" />
+        <param name="sim_real_perturbation_enabled" value="$(arg sim_real_perturbation_enabled)" />
+        <param name="sim_real_perturbation_seed" value="$(arg sim_real_perturbation_seed)" />
+        <param name="lidar_noise_std" value="$(arg lidar_noise_std)" />
+        <param name="lidar_dropout_ratio" value="$(arg lidar_dropout_ratio)" />
+        <param name="obstacle_position_noise_std" value="$(arg obstacle_position_noise_std)" />
+        <param name="obstacle_velocity_noise_std" value="$(arg obstacle_velocity_noise_std)" />
+        <param name="obstacle_dropout_ratio" value="$(arg obstacle_dropout_ratio)" />
+        <param name="state_noise_std" value="$(arg state_noise_std)" />
+        <param name="observation_delay_steps" value="$(arg observation_delay_steps)" />
+        <param name="timing_degrade_enabled" value="$(arg timing_degrade_enabled)" />
+        <param name="timing_degrade_consecutive_cycles" value="$(arg timing_degrade_consecutive_cycles)" />
+        <param name="timing_degrade_max_lag_ms" value="$(arg timing_degrade_max_lag_ms)" />
+        <param name="timing_degrade_hold_s" value="$(arg timing_degrade_hold_s)" />
+        <param name="sensor_timeout" value="$(arg sensor_timeout)" />
+        <param name="obstacle_timeout" value="$(arg obstacle_timeout)" />
+        <param name="cruise_speed_mps" value="$(arg cruise_speed_mps)" />
+        <param name="perception_watchdog_enabled" value="$(arg perception_watchdog_enabled)" />
+        <param name="perception_watchdog_required" value="$(arg perception_watchdog_required)" />
+        <param name="perception_timeout" value="$(arg perception_timeout)" />
+        <param name="perception_lidar_fallback_enabled" value="$(arg perception_lidar_fallback_enabled)" />
+        <param name="perception_lidar_escape_distance_m" value="$(arg perception_lidar_escape_distance_m)" />
+        <param name="perception_lidar_escape_speed_mps" value="$(arg perception_lidar_escape_speed_mps)" />
+        <param name="mission_goal_tolerance_m" value="$(arg mission_goal_tolerance_m)" />
+        <param name="hold_height" value="$(arg hold_height)" />
+        <param name="height_control" value="$(arg height_control)" />
+        <param name="policy_variant" value="$(arg policy_variant)" />
+        <param name="policy_always_on" value="$(arg policy_always_on)" />
+        <param name="deployment_guidance_enabled" value="$(arg deployment_guidance_enabled)" />
+        <param name="policy_residual_weight" value="$(arg policy_residual_weight)" />
+        <param name="goal_guidance_speed_mps" value="$(arg goal_guidance_speed_mps)" />
+        <param name="lidar_avoidance_distance_m" value="$(arg lidar_avoidance_distance_m)" />
+    </node>
+</launch>

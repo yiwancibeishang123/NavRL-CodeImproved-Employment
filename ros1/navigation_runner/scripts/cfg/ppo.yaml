@@ -1,0 +1,129 @@
+algo:
+  method:
+    step1_enabled: true # risk-aware dynamic obstacle geometry encoder
+    step2_enabled: true # short-horizon risk-field prediction loss
+    step3_enabled: true # risk-conditioned constrained PPO cost critic
+
+  feature_extractor:
+    learning_rate: 0.0005
+    dyn_obs_num: 5
+
+  observation_aux:
+    obstacle_input_mode: current_geometry
+    history_encoder_type: mlp
+    history_steps: 4
+    history_feat_dim: 7
+    history_hidden_dim: 64
+    history_out_dim: 64
+    history_input_scale: 10.0
+    risk_prediction_enabled: true
+    risk_prediction_hidden_dim: 64
+    risk_predictor_decoder_enabled: false
+    risk_prediction_loss_coef: 0.1
+    risk_prediction_learning_rate: 0.00008
+    risk_prediction_future_steps: 8
+    risk_prediction_future_stride: 1
+    risk_field_size: 8
+    risk_field_range: 4.0
+    risk_field_hidden_dim: 32
+    risk_field_time_discount: 0.95
+    risk_target_base_sigma: 0.45
+    risk_target_step_sigma_scale: 0.06
+    risk_target_corridor_width: 1.25
+    risk_target_forward_weight: 0.35
+    risk_target_approach_scale: 0.8
+    risk_target_crossing_scale: 0.45
+    risk_embedding_dim: 32
+    risk_policy_fusion_enabled: false
+    risk_policy_use_summary: false
+    risk_actor_penalty_enabled: false
+    risk_actor_penalty_coef: 0.0
+    risk_actor_probe_distance: 2.5
+    risk_actor_patch_size: 3
+    risk_actor_patch_weighted: false
+    risk_actor_patch_weight_sigma: 0.85
+    risk_actor_adaptive_enabled: false
+    risk_actor_adaptive_scale: 0.0
+    risk_actor_goal_progress_enabled: false
+    risk_actor_goal_progress_scale: 0.0
+    risk_actor_profile_enabled: false
+    risk_actor_profile_near_scale: 0.7
+    risk_actor_profile_far_scale: 1.35
+    risk_actor_profile_lateral_offset: 0.6
+    risk_actor_threshold: 0.08
+    risk_action_refinement_enabled: false
+    risk_action_refinement_hidden_dim: 128
+    risk_action_refinement_scale: 0.35
+    risk_action_refinement_profile_hidden_dim: 64
+    risk_action_candidate_risk_weight: 2.5
+    risk_action_candidate_align_weight: 1.25
+    risk_action_candidate_speed_weight: 0.35
+    risk_action_candidate_deviation_weight: 0.4
+    risk_action_candidate_temperature: 0.35
+    risk_action_concentration_modulation_scale: 0.4
+    stage3_curriculum_enabled: false
+    stage3_fusion_start_frames: 0
+    stage3_penalty_start_frames: 0
+    stage3_profile_start_frames: 0
+    stage3_penalty_warmup_frames: 1
+    stage3_profile_warmup_frames: 1
+    lstm_lr_scale: 0.5
+    lstm_epoch_num: 2
+    critic_value_clip: 10.0
+
+  actor:
+    learning_rate: 0.0005
+    clip_ratio: 0.1
+    action_limit: 2.0 # m/s
+
+  critic:
+    learning_rate: 0.0005
+    clip_ratio: 0.1
+
+  constrained_rl:
+    enabled: true
+    cost_critic_hidden_dim: 128
+    cost_critic_coef: 1.0
+    lagrange_init: 0.02
+    lagrange_lr: 0.1
+    lagrange_max: 5.0
+    cost_budget: 0.003
+    cost_gamma: 0.99
+    cost_lambda: 0.95
+    cost_critic_conditioning: embedding # new Step3: use risk_embedding only; no_cond_same_dim, summary, embedding, or full
+    cost_critic_conditioning_style: concat # keep the original Step3 critic architecture, with summary removed from the condition
+    cost_condition_hidden_dim: 128
+    cost_condition_gate_scale: 0.5
+    cost_condition_shift_scale: 0.5
+    cost_critic_high_risk_ratio: 0.2
+    cost_critic_risk_score_source: summary_max # summary_max, topk, or goal_corridor
+    cost_critic_risk_priority_coef: 0.0
+    cost_critic_risk_priority_max: 3.0
+    cost_critic_risk_residual_coef: 0.0
+    cost_critic_risk_align_coef: 0.02
+    cost_critic_risk_rank_coef: 0.05
+    cost_critic_risk_center_coef: 0.01
+    cost_critic_risk_weighting_enabled: false # deprecated trial path; keep false for residual-conditioning ablations
+    cost_critic_risk_weight_alpha: 2.0
+    cost_critic_risk_weight_source: max # mean, max, active, energy, or topk
+    cost_critic_risk_weight_topk_ratio: 0.1
+    cost_critic_risk_weight_max: 5.0
+    cost_critic_risk_weight_normalize: true
+    cost_source: env # env, risk_field, or hybrid
+    risk_cost_mode: topk # topk or goal_corridor
+    risk_cost_topk_ratio: 0.1
+    risk_cost_weight: 0.0
+    risk_cost_threshold: 0.1
+    risk_cost_start_frames: 0
+    risk_cost_warmup_frames: 1
+    risk_cost_shuffle_enabled: false
+    risk_cost_corridor_distance: 2.5
+    risk_cost_corridor_near_scale: 0.55
+    risk_cost_corridor_far_scale: 1.25
+    risk_cost_corridor_lateral_offset: 0.6
+    risk_cost_detach: true
+
+  entropy_loss_coefficient: 0.001 # encourage exploration
+  training_frame_num: 32
+  training_epoch_num: 4
+  num_minibatches: 16 # split into N minibatches

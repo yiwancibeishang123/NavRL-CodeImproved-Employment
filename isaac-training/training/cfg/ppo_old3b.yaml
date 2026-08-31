@@ -1,0 +1,79 @@
+algo:
+  feature_extractor:
+    learning_rate: 5e-4
+    dyn_obs_num: 5
+
+  observation_aux:
+    obstacle_input_mode: current_geometry
+    history_encoder_type: mlp
+    history_steps: 4
+    history_feat_dim: 7
+    history_hidden_dim: 64
+    history_out_dim: 64
+    history_input_scale: 10.0
+    risk_prediction_enabled: true
+    risk_prediction_hidden_dim: 64
+    risk_predictor_decoder_enabled: false
+    risk_prediction_loss_coef: 0.1
+    risk_prediction_learning_rate: 8e-5
+    risk_prediction_future_steps: 8
+    risk_prediction_future_stride: 1
+    risk_field_size: 8
+    risk_field_range: 4.0
+    risk_field_hidden_dim: 32
+    risk_field_time_discount: 0.95
+    risk_embedding_dim: 32
+    risk_policy_fusion_enabled: true
+    risk_policy_use_summary: true
+    risk_actor_penalty_enabled: true
+    risk_actor_penalty_coef: 0.015
+    risk_actor_probe_distance: 2.5
+    risk_actor_patch_size: 3
+    risk_actor_patch_weighted: true
+    risk_actor_patch_weight_sigma: 0.85
+    risk_actor_adaptive_enabled: true
+    risk_actor_adaptive_scale: 0.5
+    risk_actor_goal_progress_enabled: true
+    risk_actor_goal_progress_scale: 0.003
+    risk_actor_profile_enabled: true
+    risk_actor_profile_near_scale: 0.7
+    risk_actor_profile_far_scale: 1.35
+    risk_actor_profile_lateral_offset: 0.6
+    risk_actor_threshold: 0.08
+    risk_action_refinement_enabled: false
+    risk_action_refinement_hidden_dim: 128
+    risk_action_refinement_scale: 0.35
+    stage3_curriculum_enabled: false
+    stage3_fusion_start_frames: 0
+    stage3_penalty_start_frames: 0
+    stage3_profile_start_frames: 0
+    stage3_penalty_warmup_frames: 1
+    stage3_profile_warmup_frames: 1
+    lstm_lr_scale: 0.5
+    lstm_epoch_num: 2
+    critic_value_clip: 10.0
+
+  actor:
+    learning_rate: 5e-4
+    clip_ratio: 0.1
+    action_limit: 2.0
+
+  critic:
+    learning_rate: 5e-4
+    clip_ratio: 0.1
+
+  constrained_rl:
+    enabled: false
+    cost_critic_hidden_dim: 128
+    cost_critic_coef: 1.0
+    lagrange_init: 0.0
+    lagrange_lr: 0.02
+    lagrange_max: 5.0
+    cost_budget: 0.12
+    cost_gamma: 0.99
+    cost_lambda: 0.95
+
+  entropy_loss_coefficient: 1e-3
+  training_frame_num: 32
+  training_epoch_num: 4
+  num_minibatches: 16

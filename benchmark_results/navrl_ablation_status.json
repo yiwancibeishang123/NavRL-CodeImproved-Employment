@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "kind": "navrl_ablation_evidence_status",
+  "status": "partial_archived_metrics",
+  "integrity_policy": "Do not fabricate intermediate ablation metrics from an incompatible full-model checkpoint.",
+  "variants": [
+    "baseline_ppo",
+    "geom_encoder_ppo",
+    "risk_aux_ppo",
+    "ours_constrained"
+  ],
+  "archived_checkpoints": {
+    "baseline_ppo": {
+      "checkpoint": "ros1/navigation_runner/scripts/ckpts/navrl_checkpoint.pt",
+      "source_label": "original_navrl",
+      "success_rate": 0.7138671875,
+      "collision_rate": 0.259765625
+    },
+    "ours_constrained": {
+      "checkpoint": "ros1/navigation_runner/scripts/ckpts/step3-80new.pt",
+      "source_label": "improved_navrl",
+      "success_rate": 0.8486328125,
+      "collision_rate": 0.1103515625
+    }
+  },
+  "missing_archived_checkpoints": [
+    "geom_encoder_ppo",
+    "risk_aux_ppo"
+  ],
+  "implemented_reproduction_entries": {
+    "train": "comparison/train_policy_variants.sh",
+    "evaluate": "comparison/evaluate_policy_variants.sh"
+  },
+  "required_output_fields": [
+    "success_rate",
+    "collision_rate",
+    "average_speed_mps",
+    "arrival_time_s",
+    "path_length_m",
+    "waypoint_error_m"
+  ],
+  "note": "The baseline-vs-complete delta is auditable; four-row ablation claims remain pending independent trained checkpoints."
+}

@@ -1,0 +1,10 @@
+key,value
+world_name,indoor_dynamic_benchmark_v1
+launch_name,indoor_dynamic_benchmark_v1
+ground_size_x,120
+ground_size_y,40
+ground_color,0.28 0.28 0.28 1
+spawn_x,-8.0
+spawn_y,0.0
+spawn_z,0.1
+spawn_yaw,0.0

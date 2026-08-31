@@ -1,0 +1,27 @@
+# Reproducible ROS1/Gazebo verification image for a Ubuntu 22.04 host.
+# Noetic remains isolated in its supported Ubuntu 20.04 userspace.
+# The mirror tag is already available on the delivery host. It remains the
+# upstream OSRF Noetic desktop image, but avoids a Docker Hub timeout here.
+FROM docker.m.daocloud.io/osrf/ros:noetic-desktop-full
+
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential cmake python3-pip python3-dev python3-catkin-tools xvfb mesa-utils \
+    libboost-system-dev libeigen3-dev libgazebo11-dev libpcl-dev libprotobuf-dev qtbase5-dev \
+    ros-noetic-cv-bridge ros-noetic-image-transport ros-noetic-mavros \
+    ros-noetic-mavros-extras ros-noetic-message-filters ros-noetic-pcl-conversions \
+    ros-noetic-pcl-ros ros-noetic-tf2-geometry-msgs ros-noetic-tf2-ros \
+    ros-noetic-topic-tools ros-noetic-vision-msgs \
+    && rm -rf /var/lib/apt/lists/*
+
+ENV PIP_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple
+ENV PIP_DEFAULT_TIMEOUT=120
+
+COPY isaac-training/requirements-deployment.txt /tmp/requirements-deployment.txt
+RUN python3 -m pip install --no-cache-dir --upgrade pip \
+    && python3 -m pip install --no-cache-dir --ignore-installed -r /tmp/requirements-deployment.txt
+
+WORKDIR /workspace/NavRL-decoder-deployment
+CMD ["bash"]

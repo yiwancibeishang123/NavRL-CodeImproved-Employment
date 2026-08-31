@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "kind": "gazebo_navigation_mission_metrics",
+  "source": "/tmp/navrl_results/clean_sim_metrics.jsonl",
+  "runs": 1,
+  "success_count": 1,
+  "success_rate": 1.0,
+  "collision_rate": null,
+  "collision_rate_status": "not_measured_by_mission_logger",
+  "per_run": [
+    {
+      "outcome": "success",
+      "completion_time_s": 1.787,
+      "path_length_m": 1.1583028164473448,
+      "average_speed_mps": 0.6481828855329294,
+      "observed_speed_mps": 0.6568274291088257,
+      "waypoint_error_m": 0.955869701226367,
+      "initial_goal_distance_m": 2.0015737038267662
+    }
+  ],
+  "completion_time_s": 1.787,
+  "successful_completion_time_s": 1.787,
+  "path_length_m": 1.1583028164473448,
+  "successful_path_length_m": 1.1583028164473448,
+  "average_speed_mps": 0.6481828855329294,
+  "successful_average_speed_mps": 0.6481828855329294,
+  "observed_speed_mps": 0.6568274291088257,
+  "successful_observed_speed_mps": 0.6568274291088257,
+  "waypoint_error_m": 0.955869701226367,
+  "successful_waypoint_error_m": 0.955869701226367,
+  "initial_goal_distance_m": 2.0015737038267662,
+  "successful_initial_goal_distance_m": 2.0015737038267662,
+  "result": "passed"
+}

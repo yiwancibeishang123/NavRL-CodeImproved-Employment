@@ -1,0 +1,15 @@
+{
+  "kind": "px4_mavros_mock_contract",
+  "result": "passed",
+  "preflight_stdout": "connected: True\narmed: False\nmode: MANUAL\nlocal_position: 1.25 -0.5 0.9\nPX4/MAVROS read-only preflight passed",
+  "hold_setpoint": {
+    "coordinate_frame": 1,
+    "type_mask": 3576,
+    "position": [
+      1.25,
+      -0.5,
+      0.9
+    ]
+  },
+  "boundary": "Mock ROS transport test only; no FCU was connected, armed, or commanded."
+}

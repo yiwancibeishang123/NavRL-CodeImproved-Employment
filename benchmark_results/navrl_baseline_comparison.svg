@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="460" viewBox="0 0 900 460">
+<rect width="900" height="460" fill="#f8fafc"/>
+<text x="48" y="42" font-family="sans-serif" font-size="24" font-weight="700" fill="#0f172a">NavRL training summary comparison</text>
+<text x="48" y="68" font-family="sans-serif" font-size="13" fill="#475569">Same 1024-env configuration, 80 dynamic obstacles, seed 0; archived W&amp;B summaries.</text>
+<line x1="100" y1="380" x2="820" y2="380" stroke="#64748b"/><line x1="100" y1="100" x2="100" y2="380" stroke="#64748b"/>
+<g font-family="sans-serif" font-size="12" fill="#64748b"><text x="74" y="384">0%</text><text x="68" y="314">25%</text><text x="68" y="244">50%</text><text x="68" y="174">75%</text><text x="62" y="104">100%</text><text x="260" y="414">success rate</text><text x="600" y="414">collision rate</text></g>
+<g fill="#94a3b8"><rect x="220" y="180" width="82" height="200"/><rect x="560" y="307" width="82" height="73"/></g>
+<g fill="#0f766e"><rect x="322" y="142" width="82" height="238"/><rect x="662" y="349" width="82" height="31"/></g>
+<g font-family="sans-serif" font-size="14" font-weight="700" fill="#0f172a" text-anchor="middle"><text x="261" y="170">71.39%</text><text x="363" y="132">84.86%</text><text x="601" y="297">25.98%</text><text x="703" y="339">11.04%</text></g>
+<g font-family="sans-serif" font-size="12" fill="#334155"><rect x="250" y="438" width="14" height="14" fill="#94a3b8"/><text x="270" y="450">original NavRL</text><rect x="430" y="438" width="14" height="14" fill="#0f766e"/><text x="450" y="450">improved NavRL</text></g>
+</svg>

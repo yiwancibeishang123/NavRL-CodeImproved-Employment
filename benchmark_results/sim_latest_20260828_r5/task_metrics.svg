@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520">
+<rect width="960" height="520" fill="#f8fafc"/>
+<text x="48" y="42" font-family="sans-serif" font-size="24" font-weight="700" fill="#0f172a">Gazebo mission metrics · r5</text>
+<text x="48" y="68" font-family="sans-serif" font-size="13" fill="#475569">One short mission per group; values are measurements, not a clean/stress performance claim.</text>
+<line x1="90" y1="420" x2="900" y2="420" stroke="#64748b"/>
+<line x1="90" y1="100" x2="90" y2="420" stroke="#64748b"/>
+<g font-family="sans-serif" font-size="12" fill="#64748b">
+  <text x="64" y="424">0</text><text x="50" y="344">0.7</text><text x="50" y="264">1.4</text><text x="50" y="184">2.1</text><text x="50" y="104">2.8</text>
+  <text x="345" y="452">clean_sim</text><text x="680" y="452">perturbed_sim</text>
+</g>
+<text x="18" y="270" transform="rotate(-90 18 270)" font-family="sans-serif" font-size="12" fill="#475569">metres / m/s</text>
+<g fill="#0f766e"><rect x="250" y="235" width="44" height="185"/><rect x="585" y="244" width="44" height="176"/></g>
+<g fill="#b45309"><rect x="302" y="414" width="44" height="6"/><rect x="637" y="366" width="44" height="54"/></g>
+<g fill="#2563eb"><rect x="354" y="114" width="44" height="306"/><rect x="689" y="308" width="44" height="112"/></g>
+<g font-family="sans-serif" font-size="12" fill="#0f172a" text-anchor="middle">
+  <text x="272" y="228">1.622</text><text x="607" y="237">1.374</text>
+  <text x="324" y="407">0.049</text><text x="659" y="359">0.471</text>
+  <text x="376" y="106">2.678</text><text x="711" y="300">0.985</text>
+</g>
+<g font-family="sans-serif" font-size="12" fill="#334155">
+  <rect x="210" y="480" width="14" height="14" fill="#0f766e"/><text x="230" y="492">path length (m)</text>
+  <rect x="380" y="480" width="14" height="14" fill="#b45309"/><text x="400" y="492">path average speed (m/s)</text>
+  <rect x="625" y="480" width="14" height="14" fill="#2563eb"/><text x="645" y="492">waypoint error (m)</text>
+</g>
+</svg>

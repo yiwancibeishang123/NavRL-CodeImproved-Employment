@@ -1,0 +1,288 @@
+{
+  "schema_version": 2,
+  "groups": {
+    "clean_sim": {
+      "summary": {
+        "control_records": 325,
+        "command_records": 206,
+        "policy_inference_records": 206,
+        "hold_rate": 0.19076923076923077,
+        "stale_observation_hold_rate": 0.19076923076923077,
+        "safety_intervention_rate": 1.0,
+        "control_overrun_rate": 0.003076923076923077,
+        "timing_degrade_rate": 0.0,
+        "timing_degrade_hold_rate": 0.0,
+        "control_rate_hz": 20.0,
+        "command_rate_hz": 16.269841269841272,
+        "configured_control_rate_hz": 20.0,
+        "inference_wall_ms_p50": 3.2817,
+        "inference_wall_ms_p95": 7.6141,
+        "inference_wall_ms_max": 14.2311,
+        "inference_device_ms_p50": null,
+        "inference_device_ms_p95": null,
+        "inference_device_ms_max": null,
+        "control_ms_p50": 16.1731,
+        "control_ms_p95": 29.67588,
+        "control_ms_max": 120.9553,
+        "control_period_jitter_ms_p50": 84.3325,
+        "control_period_jitter_ms_p95": 103.78756499999977,
+        "control_period_jitter_ms_max": 224.6593,
+        "scheduler_lag_ms_p50": 0.0,
+        "scheduler_lag_ms_p95": 1.0,
+        "scheduler_lag_ms_max": 6.0,
+        "odom_age_s_p50": 0.012,
+        "odom_age_s_p95": 0.028,
+        "odom_age_s_max": 0.05,
+        "raycast_age_s_p50": 0.0,
+        "raycast_age_s_p95": 0.047,
+        "raycast_age_s_max": 0.049,
+        "obstacle_age_s_p50": 0.0,
+        "obstacle_age_s_p95": 0.049,
+        "obstacle_age_s_max": 0.049,
+        "action_delta_norm_p50": 1.586487,
+        "action_delta_norm_p95": 1.92498825,
+        "action_delta_norm_max": 1.99052,
+        "process_rss_mib_p50": 457.836,
+        "process_rss_mib_p95": 457.9482,
+        "process_rss_mib_max": 457.965,
+        "cuda_allocated_mib_p50": null,
+        "cuda_allocated_mib_p95": null,
+        "cuda_allocated_mib_max": null,
+        "cuda_reserved_mib_p50": null,
+        "cuda_reserved_mib_p95": null,
+        "cuda_reserved_mib_max": null,
+        "serial_policy_throughput_hz": 253.87091526626872
+      },
+      "run_metadata": {
+        "device": "cpu",
+        "torch": "2.1.2+cu121",
+        "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.29",
+        "python": "3.8.10"
+      }
+    },
+    "perturbed_sim": {
+      "summary": {
+        "control_records": 783,
+        "command_records": 112,
+        "policy_inference_records": 112,
+        "hold_rate": 0.8109833971902938,
+        "stale_observation_hold_rate": 0.210727969348659,
+        "safety_intervention_rate": 1.0,
+        "control_overrun_rate": 0.01532567049808429,
+        "timing_degrade_rate": 0.6002554278416348,
+        "timing_degrade_hold_rate": 0.6002554278416348,
+        "control_rate_hz": 19.92712076039039,
+        "command_rate_hz": 15.325141515946427,
+        "configured_control_rate_hz": 20.0,
+        "inference_wall_ms_p50": 9.880199999999999,
+        "inference_wall_ms_p95": 32.608289999999954,
+        "inference_wall_ms_max": 104.7269,
+        "inference_device_ms_p50": null,
+        "inference_device_ms_p95": null,
+        "inference_device_ms_max": null,
+        "control_ms_p50": 0.0,
+        "control_ms_p95": 40.307089999999995,
+        "control_ms_max": 128.5692,
+        "control_period_jitter_ms_p50": 1.30125,
+        "control_period_jitter_ms_p95": 20.809184999999893,
+        "control_period_jitter_ms_max": 119.4788,
+        "scheduler_lag_ms_p50": 143.0,
+        "scheduler_lag_ms_p95": 144.0,
+        "scheduler_lag_ms_max": 228.0,
+        "odom_age_s_p50": 0.014,
+        "odom_age_s_p95": 0.036899999999999974,
+        "odom_age_s_max": 0.134,
+        "raycast_age_s_p50": 0.011,
+        "raycast_age_s_p95": 0.036149999999999974,
+        "raycast_age_s_max": 0.174,
+        "obstacle_age_s_p50": 0.022,
+        "obstacle_age_s_p95": 0.046,
+        "obstacle_age_s_max": 0.19,
+        "action_delta_norm_p50": 0.9618899999999999,
+        "action_delta_norm_p95": 3.62257655,
+        "action_delta_norm_max": 3.789405,
+        "process_rss_mib_p50": 458.262,
+        "process_rss_mib_p95": 458.375,
+        "process_rss_mib_max": 458.383,
+        "cuda_allocated_mib_p50": null,
+        "cuda_allocated_mib_p95": null,
+        "cuda_allocated_mib_max": null,
+        "cuda_reserved_mib_p50": null,
+        "cuda_reserved_mib_p95": null,
+        "cuda_reserved_mib_max": null,
+        "serial_policy_throughput_hz": 76.1203056964291
+      },
+      "run_metadata": {
+        "device": "cpu",
+        "torch": "2.1.2+cu121",
+        "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.29",
+        "python": "3.8.10"
+      }
+    }
+  },
+  "comparison_to_clean": {
+    "perturbed_sim": {
+      "control_records": {
+        "absolute": 458,
+        "relative_percent": 140.92307692307693
+      },
+      "command_records": {
+        "absolute": -94,
+        "relative_percent": -45.63106796116505
+      },
+      "policy_inference_records": {
+        "absolute": -94,
+        "relative_percent": -45.63106796116505
+      },
+      "hold_rate": {
+        "absolute": 0.620214166421063,
+        "relative_percent": 325.11226465620234
+      },
+      "stale_observation_hold_rate": {
+        "absolute": 0.01995873857942823,
+        "relative_percent": 10.462241997280927
+      },
+      "safety_intervention_rate": {
+        "absolute": 0.0,
+        "relative_percent": 0.0
+      },
+      "control_overrun_rate": {
+        "absolute": 0.012248747421161214,
+        "relative_percent": 398.08429118773944
+      },
+      "timing_degrade_rate": {
+        "absolute": 0.6002554278416348,
+        "relative_percent": null
+      },
+      "timing_degrade_hold_rate": {
+        "absolute": 0.6002554278416348,
+        "relative_percent": null
+      },
+      "control_rate_hz": {
+        "absolute": -0.07287923960960896,
+        "relative_percent": -0.3643961980480448
+      },
+      "command_rate_hz": {
+        "absolute": -0.9446997538948452,
+        "relative_percent": -5.806447267841486
+      },
+      "configured_control_rate_hz": {
+        "absolute": 0.0,
+        "relative_percent": 0.0
+      },
+      "inference_wall_ms_p50": {
+        "absolute": 6.598499999999999,
+        "relative_percent": 201.0695676021574
+      },
+      "inference_wall_ms_p95": {
+        "absolute": 24.994189999999953,
+        "relative_percent": 328.26190882704395
+      },
+      "inference_wall_ms_max": {
+        "absolute": 90.4958,
+        "relative_percent": 635.9016520156559
+      },
+      "control_ms_p50": {
+        "absolute": -16.1731,
+        "relative_percent": -100.0
+      },
+      "control_ms_p95": {
+        "absolute": 10.631209999999996,
+        "relative_percent": 35.82441363154183
+      },
+      "control_ms_max": {
+        "absolute": 7.613900000000001,
+        "relative_percent": 6.294804774987124
+      },
+      "control_period_jitter_ms_p50": {
+        "absolute": -83.03125,
+        "relative_percent": -98.45700056324668
+      },
+      "control_period_jitter_ms_p95": {
+        "absolute": -82.97837999999987,
+        "relative_percent": -79.9502136888943
+      },
+      "control_period_jitter_ms_max": {
+        "absolute": -105.1805,
+        "relative_percent": -46.81778141390095
+      },
+      "scheduler_lag_ms_p50": {
+        "absolute": 143.0,
+        "relative_percent": null
+      },
+      "scheduler_lag_ms_p95": {
+        "absolute": 143.0,
+        "relative_percent": 14300.0
+      },
+      "scheduler_lag_ms_max": {
+        "absolute": 222.0,
+        "relative_percent": 3700.0
+      },
+      "odom_age_s_p50": {
+        "absolute": 0.002,
+        "relative_percent": 16.666666666666664
+      },
+      "odom_age_s_p95": {
+        "absolute": 0.008899999999999974,
+        "relative_percent": 31.78571428571419
+      },
+      "odom_age_s_max": {
+        "absolute": 0.084,
+        "relative_percent": 168.0
+      },
+      "raycast_age_s_p50": {
+        "absolute": 0.011,
+        "relative_percent": null
+      },
+      "raycast_age_s_p95": {
+        "absolute": -0.010850000000000026,
+        "relative_percent": -23.08510638297878
+      },
+      "raycast_age_s_max": {
+        "absolute": 0.12499999999999999,
+        "relative_percent": 255.10204081632648
+      },
+      "obstacle_age_s_p50": {
+        "absolute": 0.022,
+        "relative_percent": null
+      },
+      "obstacle_age_s_p95": {
+        "absolute": -0.0030000000000000027,
+        "relative_percent": -6.122448979591842
+      },
+      "obstacle_age_s_max": {
+        "absolute": 0.14100000000000001,
+        "relative_percent": 287.7551020408164
+      },
+      "action_delta_norm_p50": {
+        "absolute": -0.6245970000000001,
+        "relative_percent": -39.36981519546016
+      },
+      "action_delta_norm_p95": {
+        "absolute": 1.6975882999999998,
+        "relative_percent": 88.1869434787459
+      },
+      "action_delta_norm_max": {
+        "absolute": 1.7988849999999998,
+        "relative_percent": 90.37261620079174
+      },
+      "process_rss_mib_p50": {
+        "absolute": 0.4259999999999877,
+        "relative_percent": 0.0930464183681466
+      },
+      "process_rss_mib_p95": {
+        "absolute": 0.4268000000000143,
+        "relative_percent": 0.09319831369574424
+      },
+      "process_rss_mib_max": {
+        "absolute": 0.41800000000000637,
+        "relative_percent": 0.09127335058356127
+      },
+      "serial_policy_throughput_hz": {
+        "absolute": -177.75060956983964,
+        "relative_percent": -70.01613768296717
+      }
+    }
+  },
+  "physical_log_supplied": false
+}

@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "kind": "same_configuration_navrl_baseline_comparison",
+  "status": "partial_archived_metrics",
+  "comparison_scope": "同一训练配置下的离线评估摘要；不是当前 ROS clean/stress 闭环任务成功率",
+  "environment": {
+    "env_num_envs": 1024,
+    "env_dyn_num_obstacles": 80,
+    "max_episode_length": 2200,
+    "seed": 0,
+    "metric_source": "W&B summary files committed in the deployment package"
+  },
+  "models": {
+    "original_navrl": {
+      "checkpoint": "ros1/navigation_runner/scripts/ckpts/navrl_checkpoint.pt",
+      "summary_source": "experiment/train/selected_runs/NavRL-80/files/wandb-summary.json",
+      "metrics": {
+        "success_rate": 0.7138671875,
+        "collision_rate": 0.259765625,
+        "episode_len": 1858.171875,
+        "return": 9713.333984375,
+        "average_speed_mps": null,
+        "waypoint_error_m": null
+      }
+    },
+    "improved_navrl": {
+      "checkpoint": "ros1/navigation_runner/scripts/ckpts/step3-80new.pt",
+      "summary_source": "experiment/train/selected_runs/step3-80new/files/wandb-summary.json",
+      "metrics": {
+        "success_rate": 0.8486328125,
+        "collision_rate": 0.1103515625,
+        "episode_len": 2064.828125,
+        "return": 9971.2861328125,
+        "average_speed_mps": null,
+        "waypoint_error_m": null
+      }
+    }
+  },
+  "delta_improved_minus_original": {
+    "success_rate_abs": 0.134765625,
+    "collision_rate_abs": -0.1494140625,
+    "collision_relative_reduction": 0.5757575757575758,
+    "episode_len_abs": 206.65625,
+    "return_abs": 257.9521484375,
+    "average_speed_mps": null,
+    "waypoint_error_m": null
+  },
+  "missing_metrics": [
+    "average_speed_mps",
+    "waypoint_error_m"
+  ],
+  "reproduction": {
+    "command": "bash comparison/evaluate_policy_variants.sh baseline_ppo=/abs/path/navrl_checkpoint.pt ours_constrained=/abs/path/step3-80new.pt -- --num-runs 20 --seed-start 100 --output comparison/eval_results.json",
+    "output_fields": [
+      "success_rate",
+      "collision_rate",
+      "average_speed_mps",
+      "waypoint_error_m"
+    ],
+    "requirement": "需要 Isaac-Sim、omni_drones 和 TorchRL 运行时；当前主机未安装 Isaac-Sim，因此不能伪造缺失的两项数值"
+  }
+}

@@ -1,0 +1,255 @@
+{
+  "schema_version": 1,
+  "kind": "gazebo_high_fidelity_perception_truth_evaluation",
+  "target_model": "person1_0.5_0.5_1.8",
+  "evaluation_mode": "target_truth_tracking",
+  "challenge_mode": "clean",
+  "color_topic": "/camera/color/image_raw",
+  "duration_s": 35.0,
+  "limits": {
+    "minimum_tracker_samples": 5,
+    "position_p95_m": 1.5,
+    "velocity_p95_mps": 1.5,
+    "truth_source": "/gazebo/model_states; velocity differentiated from pose"
+  },
+  "result": "passed",
+  "camera": {
+    "color_messages": 414,
+    "depth_messages": 413
+  },
+  "yolo": {
+    "positive_box_messages": 416,
+    "detector_messages": 416,
+    "negative_box_messages": 0,
+    "out_of_view_positive_samples": 35,
+    "eligible_visibility_samples": 381,
+    "eligible_positive_samples": 381,
+    "eligible_missed_samples": 0,
+    "eligible_miss_rate": 0.0,
+    "max_consecutive_eligible_misses": 0,
+    "false_positive_assessment": "not_identifiable_single_target_scene",
+    "false_positive_proxy_out_of_view_positive_samples": 35,
+    "false_positive_frame_rate": 1.0,
+    "forward_ms": {
+      "count": 372,
+      "mean": 14.233313604544032,
+      "p50": 12.869919497461524,
+      "p95": 21.324587501294445,
+      "max": 28.320398996584117
+    },
+    "callback_ms": {
+      "count": 416,
+      "mean": 15.70088842079433,
+      "p50": 15.647830507077742,
+      "p95": 24.64564350520959,
+      "max": 36.55462300230283
+    }
+  },
+  "tracker": {
+    "matched_samples": 109,
+    "position_error_m": {
+      "count": 109,
+      "mean": 0.1136105813329532,
+      "p50": 0.11404564864676858,
+      "p95": 0.16659438519914366,
+      "max": 0.20782908679997655
+    },
+    "velocity_error_mps": {
+      "count": 106,
+      "mean": 0.20997434689507344,
+      "p50": 0.19416801067062742,
+      "p95": 0.40338623031152987,
+      "max": 0.5079503401289787
+    },
+    "last_service_error": null
+  },
+  "perception_watchdog": {
+    "messages": 276,
+    "degraded_messages": 0,
+    "degraded_fraction": 0.0,
+    "last_degraded": false,
+    "contract": "degraded=true requests position hold/zero velocity in navigation.py"
+  },
+  "sample_preview": [
+    {
+      "position_error_m": 0.13831142690319914,
+      "truth": {
+        "x": 2.2,
+        "y": 0.9281649513949072,
+        "z": 0.0,
+        "vx": 0.0,
+        "vy": 0.1393946230320418
+      },
+      "estimate": {
+        "x": 2.1483656087671137,
+        "y": 0.7998530639720802,
+        "z": 0.6120030891639441,
+        "vx": 0.2057760897348575,
+        "vy": 0.09732295415613262
+      },
+      "velocity_error_mps": 0.21003291272696353
+    },
+    {
+      "position_error_m": 0.15190667253542517,
+      "truth": {
+        "x": 2.2,
+        "y": 0.9540479886922287,
+        "z": 0.0,
+        "vx": 0.0,
+        "vy": 0.08533548034860124
+      },
+      "estimate": {
+        "x": 2.2244520818647837,
+        "y": 0.804122230887698,
+        "z": 0.619980387692479,
+        "vx": 0.4416715594881652,
+        "vy": 0.054428749009848246
+      },
+      "velocity_error_mps": 0.44275161490699694
+    },
+    {
+      "position_error_m": 0.15682470774284824,
+      "truth": {
+        "x": 2.2,
+        "y": 0.9786622562031064,
+        "z": 0.0,
+        "vx": 0.0,
+        "vy": 0.08117518471306259
+      },
+      "estimate": {
+        "x": 2.2269959897422145,
+        "y": 0.824178582319851,
+        "z": 0.5727587642382719,
+        "vx": 0.30355734336615736,
+        "vy": 0.08241921295532303
+      },
+      "velocity_error_mps": 0.30355989247228743
+    },
+    {
+      "position_error_m": 0.1783446992642035,
+      "truth": {
+        "x": 2.2,
+        "y": 1.000342719370182,
+        "z": 0.0,
+        "vx": 0.0,
+        "vy": 0.07613222506087897
+      },
+      "estimate": {
+        "x": 2.223930992617595,
+        "y": 0.8236108904655508,
+        "z": 0.5776379883174347,
+        "vx": 0.22119474044022874,
+        "vy": 0.06507405672711837
+      },
+      "velocity_error_mps": 0.22147098294205034
+    },
+    {
+      "position_error_m": 0.16833849811869075,
+      "truth": {
+        "x": 2.2,
+        "y": 1.0207544127508137,
+        "z": 0.0,
+        "vx": 0.0,
+        "vy": 0.049818717139391476
+      },
+      "estimate": {
+        "x": 2.2114196916812277,
+        "y": 0.852803703937894,
+        "z": 0.6283094156348018,
+        "vx": -0.030668977748983656,
+        "vy": 0.13440108433863734
+      },
+      "velocity_error_mps": 0.08997090105804052
+    },
+    {
+      "position_error_m": 0.16446127332490865,
+      "truth": {
+        "x": 2.2,
+        "y": 1.0393423248258822,
+        "z": 0.0,
+        "vx": 0.0,
+        "vy": 0.056560007106523834
+      },
+      "estimate": {
+        "x": 2.1832434763691677,
+        "y": 0.8757369173985613,
+        "z": 0.6180198999963351,
+        "vx": -0.1691847557495184,
+        "vy": 0.13908717329846648
+      },
+      "velocity_error_mps": 0.1882397799023807
+    },
+    {
+      "position_error_m": 0.16801645978196705,
+      "truth": {
+        "x": 2.2,
+        "y": 1.0561064555953872,
+        "z": 0.0,
+        "vx": 0.0,
+        "vy": 0.05604907866094952
+      },
+      "estimate": {
+        "x": 2.1771359873803258,
+        "y": 0.8896529555282732,
+        "z": 0.5630032720097066,
+        "vx": -0.17429990540089685,
+        "vy": 0.15525944989808804
+      },
+      "velocity_error_mps": 0.20055711102768814
+    },
+    {
+      "position_error_m": 0.128545942012777,
+      "truth": {
+        "x": 2.2,
+        "y": 1.0714947819652576,
+        "z": 0.0,
+        "vx": 0.0,
+        "vy": 0.053186097909803304
+      },
+      "estimate": {
+        "x": 2.1947490777410765,
+        "y": 0.9430561311494577,
+        "z": 0.5676020388001425,
+        "vx": -0.04688176677875927,
+        "vy": 0.24419437388389753
+      },
+      "velocity_error_mps": 0.1966775573035564
+    },
+    {
+      "position_error_m": 0.14286086507156845,
+      "truth": {
+        "x": 2.2,
+        "y": 1.0842609522767503,
+        "z": 0.0,
+        "vx": 0.0,
+        "vy": 0.022745568795748506
+      },
+      "estimate": {
+        "x": 2.191521040615106,
+        "y": 0.9416519272581836,
+        "z": 0.5306636847525291,
+        "vx": 0.01475312233254728,
+        "vy": 0.20007934192195653
+      },
+      "velocity_error_mps": 0.1779464012272699
+    },
+    {
+      "position_error_m": 0.13577335810169552,
+      "truth": {
+        "x": 2.2,
+        "y": 1.0954561600705226,
+        "z": 0.0,
+        "vx": 0.0,
+        "vy": 0.03379461916901741
+      },
+      "estimate": {
+        "x": 2.168321674246605,
+        "y": 0.9634300700440698,
+        "z": 0.5232831141455095,
+        "vx": -0.009996619966796405,
+        "vy": 0.20785504322835668
+      },
+      "velocity_error_mps": 0.1743472501488841
+    }
+  ]
+}

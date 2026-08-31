@@ -1,0 +1,33 @@
+# Fill the fitted profile from recorded sensor/estimator statistics before using
+# it to support a paper claim. The stress profile is only a robustness test.
+clean:
+  sim_real_perturbation_enabled: false
+  lidar_noise_std: 0.0
+  lidar_dropout_ratio: 0.0
+  obstacle_position_noise_std: 0.0
+  obstacle_velocity_noise_std: 0.0
+  obstacle_dropout_ratio: 0.0
+  state_noise_std: 0.0
+  observation_delay_steps: 0
+
+stress_example_not_calibrated:
+  sim_real_perturbation_enabled: true
+  lidar_noise_std: 0.05
+  lidar_dropout_ratio: 0.05
+  obstacle_position_noise_std: 0.10
+  obstacle_velocity_noise_std: 0.10
+  obstacle_dropout_ratio: 0.10
+  state_noise_std: 0.02
+  observation_delay_steps: 2
+
+fitted_from_physical_logs:
+  # Replace every value below after analyzing physical sensor, detector, and
+  # estimator logs. Do not cite this profile until the replacements are made.
+  sim_real_perturbation_enabled: true
+  lidar_noise_std: 0.0
+  lidar_dropout_ratio: 0.0
+  obstacle_position_noise_std: 0.0
+  obstacle_velocity_noise_std: 0.0
+  obstacle_dropout_ratio: 0.0
+  state_noise_std: 0.0
+  observation_delay_steps: 0
